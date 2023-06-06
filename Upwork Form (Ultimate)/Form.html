@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charaset = "utf-8">
+        */
+        <meta name = "viewport" content = "width-device-width, initial-scale-1">
+        <title>Form</title>
+        <link rel = " stylesheet" href="css link">
+        <script>
+            function showDropDownQuestions(){
+                var dropdown = document.getElementById("dropdownQuestions");
+                dropdown.style.display = "block";
+            }
+        </script>
+    </head>
+    <body>
+        <form> 
+            <div>
+                <h1>
+                    Which subject(s) do you want to order?
+                </h1>
+                <label for="AP_Biology"> AP Biology Ultimate Review Packet</label>
+                <input type="button" onclick="showDropDownQuestions()" value="Add Packet">
+                <div id="dropdownQuestions" style="display: none;">
+                    <label for="question1">The Ultimate Review Packet is sold with a per-student license for one school year. You must order at least 10 to get the bulk discount. How many total licenses do you need for this subject?</label>
+                    <input type="number" id="tot_License" name="li" min="0" required>
+                    <br>
+                    <label for="question2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
+                    <input type="text"id="full_name" required>
+                    <br>
+                </div> 
+                <br>
+                <label for="ap_CalcA"> AP Calculus AB Ultimate Review Packet</label>
+                <input type="button" onclick="showDropDownQuestions()" value="Show Dropdown">
+                <div id="dropdownQuestions" style="display: none;">
+                    <label for="question1">Question 1:</label>
+                    <select id="question1">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <br>
+                    <label for="question2">Question 2:</label>
+                    <select id="question2">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <br>
+                <label for="ap_CalcB"> AP Calculus BC Ultimate Review Packet</label>
+                <input type="button" onclick="showDropDownQuestions()" value="Show Dropdown">
+                <div id="dropdownQuestions" style="display: none;">
+                    <label for="question1">Question 1:</label>
+                    <select id="question1">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <br>
+                    <label for="question2">Question 2:</label>
+                    <select id="question2">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <br>
+                <label for="ap_Chem"> AP Chemistry Ultimate Review Packet</label>
+                <input type="button" onclick="showDropDownQuestions()" value="Show Dropdown">
+                <div id="dropdownQuestions" style="display: none;">
+                    <label for="question1">Question 1:</label>
+                    <select id="question1">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <br>
+                    <label for="question2">Question 2:</label>
+                    <select id="question2">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <br>
+                <label for="ap_EngLang"> AP English Language and Composition Ultimate Review Packet</label>
+                <input type="button" onclick="showDropDownQuestions()" value="Show Dropdown">
+                <div id="dropdownQuestions" style="display: none;">
+                    <label for="question1">Question 1:</label>
+                    <select id="question1">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <br>
+                    <label for="question2">Question 2:</label>
+                    <select id="question2">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <br>
+                <label for="ap_EnviSci"> AP Environmental Science Ultimate Review Packet</label>
+                <input type="button" onclick="showDropDownQuestions()" value="Show Dropdown">
+                <div id="dropdownQuestions" style="display: none;">
+                    <label for="question1">Question 1:</label>
+                    <select id="question1">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <br>
+                    <label for="question2">Question 2:</label>
+                    <select id="question2">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <br>
+                <label for="ap_EuroHis"> AP European History Ultimate Review Packet</label>
+                <input type="button" onclick="showDropDownQuestions()" value="Show Dropdown">
+                <div id="dropdownQuestions" style="display: none;">
+                    <label for="question1">Question 1:</label>
+                    <select id="question1">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <br>
+                    <label for="question2">Question 2:</label>
+                    <select id="question2">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <br>
+                <label for="ap_HumGeo"> AP Human Geography Ultimate Review Packet</label>
+                <input type="button" onclick="showDropDownQuestions()" value="Show Dropdown">
+                <div id="dropdownQuestions" style="display: none;">
+                    <label for="question1">Question 1:</label>
+                    <select id="question1">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <br>
+                    <label for="question2">Question 2:</label>
+                    <select id="question2">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <br>
+                <label for="ap_MacroEcon">AP Macroeconomics Ultimate Review Packet</label>
+                <input type="button" onclick="showDropDownQuestions()" value="Show Dropdown">
+                <div id="dropdownQuestions" style="display: none;">
+                    <label for="question1">Question 1:</label>
+                    <select id="question1">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <br>
+                    <label for="question2">Question 2:</label>
+                    <select id="question2">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <br>
+                <label for="ap_MicroEcon"> AP Microeconomics Ultimate Review Packet</label>
+                <input type="button" onclick="showDropDownQuestions()" value="Show Dropdown">
+                <div id="dropdownQuestions" style="display: none;">
+                    <label for="question1">Question 1:</label>
+                    <select id="question1">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <br>
+                    <label for="question2">Question 2:</label>
+                    <select id="question2">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <br>
+                <label for="ap_Phys"> AP Physics 1 Ultimate Review Packet</label>
+                <input type="button" onclick="showDropDownQuestions()" value="Show Dropdown">
+                <div id="dropdownQuestions" style="display: none;">
+                    <label for="question1">Question 1:</label>
+                    <select id="question1">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <br>
+                    <label for="question2">Question 2:</label>
+                    <select id="question2">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <br>
+                <label for="ap_Psych"> AP Psychology Ultimate Review Packet</label>
+                <input type="button" onclick="showDropDownQuestions()" value="Show Dropdown">
+                <div id="dropdownQuestions" style="display: none;">
+                    <label for="question1">Question 1:</label>
+                    <select id="question1">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <br>
+                    <label for="question2">Question 2:</label>
+                    <select id="question2">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <br>
+                <label for="ap_Stats"> AP Statistics Ultimate Review Packet</label>
+                <input type="button" onclick="showDropDownQuestions()" value="Show Dropdown">
+                <div id="dropdownQuestions" style="display: none;">
+                    <label for="question1">Question 1:</label>
+                    <select id="question1">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <br>
+                    <label for="question2">Question 2:</label>
+                    <select id="question2">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <br>
+                <label for="ap_USGP"> AP US Government and Politics Ultimate Review Packet</label>
+                <input type="button" onclick="showDropDownQuestions()" value="Show Dropdown">
+                <div id="dropdownQuestions" style="display: none;">
+                    <label for="question1">Question 1:</label>
+                    <select id="question1">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <br>
+                    <label for="question2">Question 2:</label>
+                    <select id="question2">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <br>
+                <label for="ap_USHis"> AP US History Ultimate Review Packet</label>
+                <input type="button" onclick="showDropDownQuestions()" value="Show Dropdown">
+                <div id="dropdownQuestions" style="display: none;">
+                    <label for="question1">Question 1:</label>
+                    <select id="question1">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <br>
+                    <label for="question2">Question 2:</label>
+                    <select id="question2">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <br>
+                <label for="ap_WorldHis"> AP World History Ultimate Review Packet</label>
+                <input type="button" onclick="showDropDownQuestions()" value="Show Dropdown">
+                <div id="dropdownQuestions" style="display: none;">
+                    <label for="question1">Question 1:</label>
+                    <select id="question1">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <br>
+                    <label for="question2">Question 2:</label>
+                    <select id="question2">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                <br>
+                <label for="teach_WorkSheets"> Teacher Worksheets ONLY</label>
+                <input type="button" onclick="showDropDownQuestions()" value="Show Dropdown">
+                <div id="dropdownQuestions" style="display: none;">
+                    <label for="question1">Question 1:</label>
+                    <select id="question1">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <br>
+                    <label for="question2">Question 2:</label>
+                    <select id="question2">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+            </div>
+        </form>
+    </body>
+</html>
