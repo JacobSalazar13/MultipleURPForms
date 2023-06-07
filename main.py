@@ -9,4 +9,4 @@ def form():
     else:
         form_data = request.form.to_dict()
         response = requests.post("https://hooks.zapier.com/hooks/catch/6860943/3tpp32p/", json = form_data)
-        return jsonify(form_data), 200
+        return jsonify(form_data)
