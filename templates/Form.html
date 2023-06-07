@@ -11,7 +11,7 @@
             Which subject(s) do you want to order?
         </header>
         <main>
-            <form> 
+            <form action = "{{ url_for('form') }}" method = "post"> 
              <div>
                 <label for="AP_Biology"> AP Biology Ultimate Review Packet</label>
                 <input type="button" onclick="showDropDownQuestions(event)" value="Add Packet" data-dropdown="dropdownQuestions-1">
