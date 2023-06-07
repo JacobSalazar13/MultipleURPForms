@@ -16,7 +16,7 @@
             <form action = "{{ url_for('form') }}" method = "post"> 
              <div>
                 <label for="AP_Biology"> AP Biology Ultimate Review Packet</label>
-                <input type="button" onclick="showDropDownQuestions(event)" value="Add Packet" data-dropdown="dropdownQuestions-1">
+                <input type="button" onclick="showDropDownQuestions(event)" value="Show Dropdown" data-dropdown="dropdownQuestions-1">
                 <div id="dropdownQuestions-1" style="display: none;">
                     <label for="question1">The Ultimate Review Packet is sold with a per-student license for one school year. You must order at least 10 to get the bulk discount. How many total licenses do you need for this subject?</label>
                     <input type="number" id="tot_License1" name="li1" min="0" >
@@ -26,7 +26,7 @@
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
                     <input type="text" id="school_email1" name = "school_email1">
-                    <input type="hidden" name="AP_Biology_label" value="AP Biology Ultimate Review Packet">
+                    <input type="hidden" name="hiddenfield" value="AP Biology Ultimate Review Packet">
                 </div> 
                 <br>
                 <label for="ap_CalcA"> AP Calculus AB Ultimate Review Packet</label>
@@ -40,7 +40,7 @@
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
                     <input type="text" id="school_email2" name = "school_email2">
-                    <input type="hidden" name="Calculus_AB" value="AP Calculus AB Ultimate Review Packet">
+                    <input type="hidden" name="hiddenfield" value="AP Calculus AB Ultimate Review Packet">
                 </div> 
                 <br>
                 <label for="ap_CalcB"> AP Calculus BC Ultimate Review Packet</label>
@@ -54,7 +54,7 @@
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
                     <input type="text" id="school_email3" name = "school_email3">
-                    <input type="hidden" name="Calculus_BC_label" value="AP Calculus BC Ultimate Review Packet">
+                    <input type="hidden" name="hiddenfield" value="AP Calculus BC Ultimate Review Packet">
                 </div> 
                 <br>
                 <label for="ap_Chem"> AP Chemistry Ultimate Review Packet</label>
@@ -68,7 +68,7 @@
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
                     <input type="text" id="school_email4" name = "school_email4">
-                    <input type="hidden" name="AP_Cheistry_label" value="AP Chemistry Ultimate Review Packet">
+                    <input type="hidden" name="hiddenfield" value="AP Chemistry Ultimate Review Packet">
                 </div> 
                 <br>
                 <label for="ap_EngLang"> AP English Language and Composition Ultimate Review Packet</label>
@@ -82,7 +82,7 @@
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
                     <input type="text" id="school_email5" name = "school_email5">
-                    <input type="hidden" name="AP_English_label" value="AP English Language and Composition Ultimate Review Packet">
+                    <input type="hidden" name="hiddenfield" value="AP English Language and Composition Ultimate Review Packet">
                 </div> 
                 <br>
                 <label for="ap_EnviSci"> AP Environmental Science Ultimate Review Packet</label>
@@ -96,7 +96,7 @@
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
                     <input type="text" id="school_email6" name = "school_email6">
-                    <input type="hidden" name="AP_EnvironmentalScience_label" value="AP Environmental Science Ultimate Review Packet">
+                    <input type="hidden" name="hiddenfield" value="AP Environmental Science Ultimate Review Packet">
                 </div> 
                 <br>
                 <label for="ap_EuroHis"> AP European History Ultimate Review Packet</label>
@@ -110,7 +110,7 @@
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
                     <input type="text" id="school_email7" name = "school_email7">
-                    <input type="hidden" name="ap_EuroHis" value="AP European History Ultimate Review Packet">
+                    <input type="hidden" name="hiddenfield" value="AP European History Ultimate Review Packet">
                 </div> 
                 <br>
                 <label for="ap_HumGeo"> AP Human Geography Ultimate Review Packet</label>
@@ -124,7 +124,7 @@
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
                     <input type="text" id="school_email8" name = "school_email8">
-                    <input type="hidden" name="ap_HumGeo" value="AP Human Geography Ultimate Review Packet">
+                    <input type="hidden" name="hiddenfield" value="AP Human Geography Ultimate Review Packet">
                 </div> 
                 <br>
                 <label for="ap_MacroEcon">AP Macroeconomics Ultimate Review Packet</label>
@@ -138,7 +138,7 @@
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
                     <input type="text" id="school_email9" name = "school_email9">
-                    <input type="hidden" name="ap_MacroEcon" value="AP Macroeconomics Ultimate Review Packet">
+                    <input type="hidden" name="hiddenfield" value="AP Macroeconomics Ultimate Review Packet">
                 </div> 
                 <br>
                 <label for="ap_MicroEcon"> AP Microeconomics Ultimate Review Packet</label>
@@ -152,7 +152,7 @@
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
                     <input type="text" id="school_email10" name = "school_email10">
-                    <input type="hidden" name="ap_MicroEcon" value="AP Microeconomics Ultimate Review Packet">
+                    <input type="hidden" name="hiddenfield" value="AP Microeconomics Ultimate Review Packet">
                 </div> 
                 <br>
                 <label for="ap_Phys"> AP Physics 1 Ultimate Review Packet</label>
@@ -166,7 +166,7 @@
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
                     <input type="text" id="school_email11" name = "school_email11">
-                    <input type="hidden" name="ap_Phys" value="AP Physics 1 Ultimate Review Packet">
+                    <input type="hidden" name="hiddenfield" value="AP Physics 1 Ultimate Review Packet">
                 </div> 
                 <br>
                 <label for="ap_Psych"> AP Psychology Ultimate Review Packet</label>
@@ -180,7 +180,7 @@
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
                     <input type="text" id="school_email12" name = "school_email12">
-                    <input type="hidden" name="AP_Bioap_Psychlogy_label" value="AP Psychology Ultimate Review Packet">
+                    <input type="hidden" name="hiddenfield" value="AP Psychology Ultimate Review Packet">
                 </div> 
                 <br>
                 <label for="ap_Stats"> AP Statistics Ultimate Review Packet</label>
@@ -194,7 +194,7 @@
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
                     <input type="text" id="school_email13" name = "school_email13">
-                    <input type="hidden" name="ap_Stats" value="AP Statistics Ultimate Review Packet">
+                    <input type="hidden" name="hiddenfield" value="AP Statistics Ultimate Review Packet">
                 </div> 
                 <br>
                 <label for="ap_USGP"> AP US Government and Politics Ultimate Review Packet</label>
@@ -208,7 +208,7 @@
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
                     <input type="text" id="school_email14" name = "school_email14">
-                    <input type="hidden" name="ap_USGP" value="AP US Government and Politics Ultimate Review Packet">
+                    <input type="hidden" name="hiddenfield" value="AP US Government and Politics Ultimate Review Packet">
                 </div> 
                 <br>
                 <label for="ap_USHis"> AP US History Ultimate Review Packet</label>
@@ -222,7 +222,7 @@
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
                     <input type="text" id="school_email15" name = "school_email15">
-                    <input type="hidden" name="ap_USHis" value="AP US History Ultimate Review Packet">
+                    <input type="hidden" name="hiddenfield" value="AP US History Ultimate Review Packet">
                 </div> 
                 <br>
                 <label for="ap_WorldHis"> AP World History Ultimate Review Packet</label>
@@ -236,7 +236,7 @@
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
                     <input type="text" id="school_email16" name = "school_email16">
-                    <input type="hidden" name="ap_WorldHis" value="AP World History Ultimate Review Packet">
+                    <input type="hidden" name="hiddenfield" value="AP World History Ultimate Review Packet">
                 </div> 
                 <br>
                 <label for="teach_WorkSheets"> Teacher Worksheets ONLY</label>
@@ -250,7 +250,7 @@
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
                     <input type="text" id="school_email17" name = "school_email17">
-                    <input type="hidden" name="teach_WorkSheets" value="Teacher Worksheets ONLY">
+                    <input type="hidden" name="hiddenfield" value="Teacher Worksheets ONLY">
                 </div> 
             </div>
             <p>
