@@ -4,7 +4,7 @@
         <meta charset = "utf-8">
         <meta name = "viewport" content = "width-device-width, initial-scale-1">
         <title>Form</title>
-        <link rel = " stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+        <link rel = " stylesheet" href="{{ url_for('static', filename='form.css') }}">
     </head>
     <body>
         <header>
@@ -236,6 +236,6 @@
             </div>
         </form>
         </main>
-        <script src="Form.js"></script>
+        <script src="{{ url_for('static', filename='Form.js') }}"></script>
     </body>
 </html>
