@@ -5,6 +5,8 @@
         <meta name = "viewport" content = "width-device-width, initial-scale-1">
         <title>Form</title>
         <link rel = " stylesheet" href="{{ url_for('static', filename='form.css') }}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="{{ url_for('static', filename='Form.js') }}"></script>
     </head>
     <body>
         <header>
@@ -239,6 +241,5 @@
              </p>
         </form>
         </main>
-        <script src="{{ url_for('static', filename='Form.js') }}"></script>
     </body>
 </html>
