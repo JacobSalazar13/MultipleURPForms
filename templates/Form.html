@@ -15,6 +15,12 @@
         <main>
             <form action = "{{ url_for('form') }}" method = "post"> 
              <div>
+                <label for="FormEmail"> What email did you use to submit the last form?</label>
+                <div id="formQuestions">
+                    <label for="question0">Enter Email Here</label>
+                    <input type="text" id="formemail" name="formemail" min="0" >
+                </div>
+                <br> 
                 <label for="AP_Biology"> AP Biology Ultimate Review Packet</label>
                 <input type="button" onclick="showDropDownQuestions(event)" value="Show Dropdown" data-dropdown="dropdownQuestions-1">
                 <div id="dropdownQuestions-1" style="display: none;">
