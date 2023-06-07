@@ -1,11 +1,13 @@
 function showDropDownQuestions(event) {
-    var button = event.target;
-    var dropdownId = button.getAttribute('data-dropdown');
+    var dropdownId = $(event.target).data('dropdown');
+    var dropdown = $('#' + dropdownId);
+    dropdown.toggle();
 
-    var dropdown = document.getElementById(dropdownId);
-    if (dropdown.style.display === 'none') {
-        dropdown.style.display = 'block';
+    // If dropdown is visible, add required attribute to inputs.
+    // If not, remove it.
+    if (dropdown.is(':visible')) {
+        dropdown.find('input').attr('required', true);
     } else {
-        dropdown.style.display = 'none';
+        dropdown.find('input').removeAttr('required');
     }
 }
