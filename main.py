@@ -21,6 +21,10 @@ def form():
         return render_template('Form.html')
     else:
         form_data = request.form.to_dict()
+        subjects = ['calc_ab', 'calc_bc', 'chemistry', 'english_lang', 'environmental_science', 'euro_history', 'human_geo',
+            'macro', 'micro', 'physics1', 'pysch', 'stats', 'usgov', 'ushistory', 'world', 'worksheets']
+        for index, subject in enumerate(subjects):
+            form_data['quote_' + subject] = int(form_data['li{}'.format(index + 2)]) * 15
         response = requests.post("https://hooks.zapier.com/hooks/catch/6860943/3tpp32p/", json = form_data)
         return render_template("success.html")
     
