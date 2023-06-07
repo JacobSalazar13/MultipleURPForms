@@ -10,3 +10,7 @@ def form():
         form_data = request.form.to_dict()
         response = requests.post("https://hooks.zapier.com/hooks/catch/6860943/3tpp32p/", json = form_data)
         return jsonify(form_data)
+    
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080)
