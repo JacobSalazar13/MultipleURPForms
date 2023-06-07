@@ -1,8 +1,14 @@
 from flask import Flask, request, jsonify, render_template, make_response
 import requests 
 import functools
+import google.cloud.logging
+import logging
 
 app = Flask(__name__)
+
+def log(message, client):
+    logging.warning(message)
+    print(message)
 
 def nocache(view):
     @functools.wraps(view)
@@ -20,15 +26,19 @@ def form():
     if request.method == 'GET':
         return render_template('Form.html')
     else:
+        client = google.cloud.logging.Client()
+        client.setup_logging()
         form_data = request.form.to_dict()
         subjects = ['calc_ab', 'calc_bc', 'chemistry', 'english_lang', 'environmental_science', 'euro_history', 'human_geo',
             'macro', 'micro', 'physics1', 'pysch', 'stats', 'usgov', 'ushistory', 'world', 'worksheets']
         try:
             for index, subject in enumerate(subjects):
                 form_data['quote_' + subject] = int(form_data['li{}'.format(index + 2)]) * 15
+                log("added quote_{}".format(subject), client)
         except Exception as e:
             print(e)
-            
+            log(str(e),client)
+            log(str(form_data), client)
         response = requests.post("https://hooks.zapier.com/hooks/catch/6860943/3tpp32p/", json = form_data)
         return render_template("success.html")
     
