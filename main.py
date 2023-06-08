@@ -3,7 +3,7 @@ import requests
 import functools
 import google.cloud.logging
 import logging
-
+import time
 app = Flask(__name__)
 
 
@@ -135,6 +135,7 @@ def form():
         response = requests.post(
             "https://hooks.zapier.com/hooks/catch/6860943/3tpp32p/", json=form_data
         )
+        time.sleep(20)
         return render_template("success.html")
 
 
