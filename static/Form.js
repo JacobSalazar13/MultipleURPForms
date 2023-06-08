@@ -67,7 +67,7 @@ function checkBulk() {
       
 
 // Check if the current page is page 2
-const submitButton = document.getElementById("submitButton");
+var submitButton = document.getElementById("submitButton");
 
 if (currentPage === 2) {
   // Show the submit button
