@@ -106,10 +106,10 @@ def form():
                 )
                 form_data[subject] = subject
                 log("added quote_{}".format(subject), client)
-                service = service_id_mapping.get("{}".format(subject).get("Service"))
+                service = service_id_mapping.get("{}".format(subject)).get("Service")
                 services.append(service)
                 log("added {}".format(service), client)
-                product = service_id_mapping.get("{}".format(subject).get("ID"))
+                product = service_id_mapping.get("{}".format(subject)).get("ID")
                 product_ids.append(product)
                 log("added {}".format(product), client)
             except Exception as e:
