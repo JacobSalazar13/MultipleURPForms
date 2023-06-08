@@ -55,25 +55,31 @@ def form():
         services = []
         product_ids = []
 
-        for index, subject in enumerate(subjects):
-            quantity = 'li{}'.format(index + 2)
-            try:
-                form_data['quantity_{}'.format(subject)] = int(form_data.get(f'{quantity}')) # renaming the key
-                form_data['quote_' + subject] = form_data['quantity_{}'.format(subject)] * 15
-                form_data[subject] = subject
-                log("added quote_{}".format(subject), client)
-                service = service_id_mapping.get('{}'.format(subject).get('Service'))
-                services.append(service)
-                product = service_id_mapping.get('{}'.format(subject).get('ID'))
-                product_ids.append(product)
-            except:                
-                log('couldnt get {}'.format(subject), client)
-        # add services and product_ids to form_data
-        form_data["services"] = ','.join(services)
-        form_data["product_ids"] = ','.join(map(str, product_ids))
-        form_data['services_list'] = services
-        form_data['product_ids_list'] = product_ids
-        log(str(form_data), client)
+        try:
+            for index, subject in enumerate(subjects):
+                quantity = 'li{}'.format(index + 2)
+                try:
+                    form_data['quantity_{}'.format(subject)] = int(form_data.get(f'{quantity}')) # renaming the key
+                    form_data['quote_' + subject] = form_data['quantity_{}'.format(subject)] * 15
+                    form_data[subject] = subject
+                    log("added quote_{}".format(subject), client)
+                    service = service_id_mapping.get('{}'.format(subject).get('Service'))
+                    services.append(service)
+                    product = service_id_mapping.get('{}'.format(subject).get('ID'))
+                    product_ids.append(product)
+                except:                
+                    log('couldnt get {}'.format(subject), client)
+            # add services and product_ids to form_data
+            form_data["services"] = ','.join(services)
+            form_data["product_ids"] = ','.join(map(str, product_ids))
+            form_data['services_list'] = services
+            form_data['product_ids_list'] = product_ids
+            log(str(form_data), client)
+
+        except Exception as e:
+            print(e)
+            log(str(e),client)
+            log(str(form_data), client)
 
         response = requests.post("https://hooks.zapier.com/hooks/catch/6860943/3tpp32p/", json = form_data)
         return render_template("success.html")
