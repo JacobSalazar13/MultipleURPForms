@@ -66,4 +66,4 @@ if (currentPage === 2) {
 submitButton.style.display = "block";
 } else {
 // Hide the submit button
-submitButton.style.display = "none";
+submitButton.style.display = "none"; }
