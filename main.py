@@ -113,8 +113,8 @@ def form():
                 log("added {}".format(service), client)
                 product = service_id_mapping.get("{}".format(subject)).get("ID")
                 product_ids.append(product)
-                quantity = ["quantity_{}".format(subject)]
-                quantity.append(quantity)
+                quantity = form_data["quantity_{}".format(subject)]
+                quantities.append(quantity)
                 amount = form_data["quote_" + subject]
                 amounts.append(amount)
                 log("added {}".format(product), client)
