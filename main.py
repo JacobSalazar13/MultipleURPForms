@@ -94,6 +94,8 @@ def form():
 
         services = []
         product_ids = []
+        amounts = []
+        quantities = []
 
         for index, subject in enumerate(subjects):
             quantity = "li{}".format(index + 2)
@@ -111,6 +113,10 @@ def form():
                 log("added {}".format(service), client)
                 product = service_id_mapping.get("{}".format(subject)).get("ID")
                 product_ids.append(product)
+                quantity = ["quantity_{}".format(subject)]
+                quantity.append(quantity)
+                amount = form_data["quote_" + subject]
+                amounts.append(amount)
                 log("added {}".format(product), client)
             except Exception as e:
                 log("couldnt get {} - {}".format(subject, str(e)), client)
@@ -119,6 +125,11 @@ def form():
         form_data["product_ids"] = ",".join(map(str, product_ids))
         form_data["services_list"] = services
         form_data["product_ids_list"] = product_ids
+        form_data['quantities'] = ",".join(map(str, quantities))
+        form_data['quantities_list'] = quantities
+        form_data['amounts'] = ",".join(map(str, amounts))
+        form_data['amounts_list'] = amounts
+
         log(str(form_data), client)
 
         response = requests.post(
