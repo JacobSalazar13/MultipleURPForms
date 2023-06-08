@@ -51,7 +51,10 @@ var currentPage = 1;
         var bulk = document.querySelector('input[name="bulk"]:checked').value;
         if (bulk === "I am a student or parent") {
           document.getElementById("message").style.display = "block";
-        } else {
+        } else if (bulk === "I am a teacher or school employee and I want to request a free teacher trial") {
+            document.getElementById("message").style.display = "none";
+            document.getElementById("freeTrialMessage").style.display = "block";
+          } else {
             nextPage();
         }
       }
