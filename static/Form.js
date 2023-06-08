@@ -76,5 +76,15 @@ function updateSubmitButtonVisibility() {
         submitButton.style.display = "none";
     }
     }
-    
+function validateForm() {
+    // Check if the form is valid
+    if (document.getElementById("multi-page-form").checkValidity()) {
+        // If the form is valid, return true to submit the form
+        return true;
+    } else {
+        // If the form is invalid, display an error message or perform any other desired action
+        alert("Please fill in all required fields.");
+        return false; // Prevent the form from submitting
+    }
+    }
 updateSubmitButtonVisibility();
