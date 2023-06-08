@@ -47,6 +47,8 @@ form label {
 
 form input[type="button"],
 form button[type="submit"] {
+  display: block;
+  margin: 0 auto;
   padding: 5px 10px;
   background-color: #2480f8;
   color: white;
