@@ -32,6 +32,13 @@ def form():
     if request.method == "GET":
         return render_template("Form.html")
     else:
+        selectedValue = request.form.get("bulk")
+        if selectedValue == "I am a teacher or school employee and I want to request a free teacher trial":
+            # Redirect to the Google Form
+            return redirect("https://forms.gle/vDuq13XEnBLhkf7i6")
+        elif selectedValue == "I am a student or parent":
+            # Redirect to ultimatereviewpackets.com
+            return redirect("https://www.ultimatereviewpackets.com")
         client = google.cloud.logging.Client()
         client.setup_logging()
         form_data = request.form.to_dict()
