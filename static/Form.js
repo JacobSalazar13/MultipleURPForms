@@ -36,6 +36,7 @@ function nextPage() {
         document.getElementById("page-" + currentPage).style.display = "none";
         currentPage++;
         document.getElementById("page-" + currentPage).style.display = "block";
+        updateSubmitButtonVisibility();
     }
 }
 
@@ -44,6 +45,7 @@ function previousPage() {
         document.getElementById("page-" + currentPage).style.display = "none";
         currentPage--;
         document.getElementById("page-" + currentPage).style.display = "block";
+        updateSubmitButtonVisibility();
     }
 }
 
@@ -66,13 +68,13 @@ function checkBulk() {
     }
       
 
-// Check if the current page is page 2
-var submitButton = document.getElementById("submitButton");
-
-if (currentPage === 2) {
-  // Show the submit button
-  submitButton.style.display = "block";
-} else {
-  // Hide the submit button
-  submitButton.style.display = "none";
-}
+function updateSubmitButtonVisibility() {
+    var submitButton = document.getElementById("submitButton");
+    if (currentPage === totalPage) {
+        submitButton.style.display = "block";
+    } else {
+        submitButton.style.display = "none";
+    }
+    }
+    
+updateSubmitButtonVisibility();
