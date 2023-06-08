@@ -61,9 +61,14 @@ def form():
                 if quantity in form_data and int(form_data[quantity]) > 0:
                     services.append(service_id_mapping.get(f"{subject}").get("Service"))
                     product_ids.append(service_id_mapping.get(f"{subject}").get("ID"))
-                    form_data['quantity_{}'.format(subject)] = int(form_data.pop(quantity)) # renaming the key
-
-                form_data['quote_' + subject] = form_data['quantity_{}'.format(subject)] * 15
+                    try:
+                        form_data['quantity_{}'.format(subject)] = int(form_data.pop(quantity)) # renaming the key
+                    except:
+                        pass
+                try:                                        
+                    form_data['quote_' + subject] = form_data['quantity_{}'.format(subject)] * 15
+                except:
+                    pass
                 form_data[subject] = subject
                 log("added quote_{}".format(subject), client)
 
@@ -72,6 +77,7 @@ def form():
             form_data["product_ids"] = ','.join(map(str, product_ids))
             form_data['services_list'] = services
             form_data['product_ids_list'] = product_ids
+            log(str(form_data), client)
 
         except Exception as e:
             print(e)
