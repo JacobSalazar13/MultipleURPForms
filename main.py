@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template, make_response
+from flask import Flask, request, jsonify, render_template, make_response, redirect
 import requests
 import functools
 import google.cloud.logging
