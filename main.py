@@ -38,7 +38,7 @@ def form():
             return redirect("https://forms.gle/vDuq13XEnBLhkf7i6")
         elif selectedValue == "I am a student or parent":
             # Redirect to ultimatereviewpackets.com
-            return redirect("https://www.ultimatereviewpackets.com")
+            return redirect("https://www.ultimatereviewpacket.com/")
         client = google.cloud.logging.Client()
         client.setup_logging()
         form_data = request.form.to_dict()
