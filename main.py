@@ -108,10 +108,12 @@ def form():
                 log("added quote_{}".format(subject), client)
                 service = service_id_mapping.get("{}".format(subject).get("Service"))
                 services.append(service)
+                log("added {}".format(service), client)
                 product = service_id_mapping.get("{}".format(subject).get("ID"))
                 product_ids.append(product)
-            except:
-                log("couldnt get {}".format(subject), client)
+                log("added {}".format(product), client)
+            except Exception as e:
+                log("couldnt get {} - {}".format(subject, str(e)), client)
         # add services and product_ids to form_data
         form_data["services"] = ",".join(services)
         form_data["product_ids"] = ",".join(map(str, product_ids))
