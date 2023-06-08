@@ -131,6 +131,7 @@ def form():
         form_data['amounts_list'] = amounts
 
         log(str(form_data), client)
+        form_data['timestamp'] = time.time()
 
         response = requests.post(
             "https://hooks.zapier.com/hooks/catch/6860943/3tpp32p/", json=form_data
