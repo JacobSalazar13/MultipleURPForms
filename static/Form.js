@@ -62,15 +62,17 @@ var currentPage = 1;
         document.getElementById("bulkResults").style.display = "block";
       }
       
+
+// Check if the current page is page 2
 const submitButton = document.getElementById("submitButton");
 
 // Check if the current page is page 2
 var currentPageElement = document.querySelector('.page.active');
 var currentPage = Number(currentPageElement.dataset.page);
 if (currentPage === 2) {
-// Show the submit button
-submitButton.style.display = "block";
+  // Show the submit button
+  submitButton.style.display = "block";
 } else {
-// Hide the submit button
-submitButton.style.display = "none";
+  // Hide the submit button
+  submitButton.style.display = "none";
 }
