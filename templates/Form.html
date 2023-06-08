@@ -43,7 +43,7 @@
                 </div>
                 <br>
                 <br>
-                <button type="button" onclick="nextPage()">Next</button>
+                <button type="button" onclick="checkBulk()">Next</button>
             </div>
             <div id = 'page-2' style='display: none;'>
                 <label for="AP_Biology"> AP Biology Ultimate Review Packet</label>
@@ -307,6 +307,11 @@
                 <button type = "submit"> Submit</button>
              </p>
         </form>
+        <div id="message" style="display: none;">
+            <h2>Bulk Discounts Information</h2>
+            <p>Bulk discounts are only available to teachers/schools that have a minimum of 10 students per subject.</p>
+            <p>Please visit <a href="http://www.ultimatereviewpacket.com">www.ultimatereviewpacket.com</a> to buy an individual copy of the Ultimate Review Packet.</p>
+          </div>
         </main>
         <script src="{{ url_for('static', filename='Form.js') }}"></script>
     </body>

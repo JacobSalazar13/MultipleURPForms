@@ -47,3 +47,11 @@ var currentPage = 1;
         }
     }
 
+    function checkBulk() {
+        var bulk = document.querySelector('input[name="bulk"]:checked').value;
+        if (bulk === "I am a student or parent") {
+          document.getElementById("message").style.display = "block";
+        } else {
+            nextPage();
+        }
+      }
