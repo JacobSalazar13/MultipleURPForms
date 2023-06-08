@@ -59,8 +59,8 @@ def form():
             for index, subject in enumerate(subjects):
                 quantity = 'li{}'.format(index + 2)
                 if quantity in form_data and int(form_data[quantity]) > 0:
-                    services.append(service_id_mapping[subject]["Service"])
-                    product_ids.append(service_id_mapping[subject]["ID"])
+                    services.append(service_id_mapping.get(f"{subject}").get("Service"))
+                    product_ids.append(service_id_mapping.get(f"{subject}").get("ID"))
                     form_data['quantity_{}'.format(subject)] = int(form_data.pop(quantity)) # renaming the key
 
                 form_data['quote_' + subject] = form_data['quantity_{}'.format(subject)] * 15
