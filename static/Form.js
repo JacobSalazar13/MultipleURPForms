@@ -48,15 +48,15 @@ var currentPage = 1;
     }
 
     function checkBulk() {
-        var bulk = document.querySelector('input[name="bulk"]:checked').value;
-        if (bulk === "I am a student or parent") {
-          document.getElementById("message").style.display = "block";
-        } else if (bulk === "I am a teacher or school employee and I want to request a free teacher trial") {
-            document.getElementById("message").style.display = "none";
-            document.getElementById("freeTrialMessage").style.display = "block";
-          } else {
-            nextPage();
+        const selectedValue = document.querySelector('input[type="radio"][name="bulk"]:checked').value;
+    
+        if (selectedValue === "I am a student or parent") {
+          document.getElementById("bulkResults").innerHTML = "Bulk discounts are only available to teachers/schools that have a minimum of 10 students per subject. Please visit <a href='https://www.ultimatereviewpacket.com'>www.ultimatereviewpacket.com</a> to buy an individual copy of the Ultimate Review Packet.";
+        } else if (selectedValue === "I am a teacher or school employee and I want to request a free teacher trial") {
+          document.getElementById("bulkResults").innerHTML = "Please fill out this form to request a free teacher trial: <a href='https://forms.gle/vDuq13XEnBLhkf7i6'>https://forms.gle/vDuq13XEnBLhkf7i6</a>";
         }
+    
+        document.getElementById("bulkResults").style.display = "block";
       }
 const submitButton = document.getElementById("submitButton");
 
