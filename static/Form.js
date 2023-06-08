@@ -27,3 +27,23 @@ function showDropDownQuestions(event) {
         $('input[name="' + dropdownId + '_hidden"]').remove();
     }
 }
+
+var currentPage = 1;
+    var totalPage = 3; // Update this value if you add more pages
+
+    function nextPage() {
+        if (currentPage < totalPage) {
+            document.getElementById("page-" + currentPage).style.display = "none";
+            currentPage++;
+            document.getElementById("page-" + currentPage).style.display = "block";
+        }
+    }
+
+    function previousPage() {
+        if (currentPage > 1) {
+            document.getElementById("page-" + currentPage).style.display = "none";
+            currentPage--;
+            document.getElementById("page-" + currentPage).style.display = "block";
+        }
+    }
+

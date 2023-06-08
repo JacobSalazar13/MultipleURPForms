@@ -13,15 +13,18 @@
             Which subject(s) do you want to order?
         </header>
         <main>
-            <form action = "{{ url_for('form') }}" method = "post"> 
-             <div>
+            <form action = "{{ url_for('form') }}" method = "post" id = 'multi-page-form'> 
+             <div id = 'page-1'>
                 <label for="FormEmail"> What email did you use to submit the last form?</label>
                 <div id="formQuestions">
                     <label for="question0">Enter Email Here</label>
                     <input type="text" id="formemail" name="formemail" required>
                 </div>
-                <br> 
                 <br>
+                <br>
+                <button type="button" onclick="nextPage()">Next</button>
+            </div>
+            <div id = 'page-2' style='display: none;'>
                 <label for="AP_Biology"> AP Biology Ultimate Review Packet</label>
                 <input type="button" onclick="showDropDownQuestions(event)" value="Show Dropdown" data-dropdown="dropdownQuestions-1">
                 <div id="dropdownQuestions-1" style="display: none;">
@@ -277,6 +280,7 @@
                 </div> 
                 <br>
                 <br>
+                <button type="button" onclick="previousPage()">Previous</button>
             </div>
             <p>
                 <button type = "submit"> Submit</button>
