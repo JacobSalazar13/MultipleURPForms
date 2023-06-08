@@ -34,6 +34,7 @@ def form():
         try:
             for index, subject in enumerate(subjects):
                 form_data['quote_' + subject] = int(form_data['li{}'.format(index + 2)]) * 15
+                form_data['{}'.format(subject)] = subject
                 log("added quote_{}".format(subject), client)
         except Exception as e:
             print(e)
