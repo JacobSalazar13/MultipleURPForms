@@ -1,43 +1,19 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Success Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .success-message {
-            text-align: center;
-            background-color: #dff0d8;
-            color: #3c763d;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border: 1px solid #d6e9c6;
-        }
-
-        .success-message h1 {
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 24px;
-        }
-
-        .success-message p {
-            margin: 0;
-            font-size: 16px;
-        }
-    </style>
-</head>
+<html lang="en">
+    <head>
+        <meta charset = "utf-8">
+        <meta name = "viewport" content = "width-device-width, initial-scale-1">
+        <meta property="og:image" content="{{ url_for('static', filename='ultimatereviewimage.svg') }}" />
+        <meta property="og:title" content="Order Form Instructions Page " />
+        <meta property="og:description" content="Are you a teacher? Order Ultimate Review Packets for your students to help them prepare for the 2024 AP Exams!" />
+        <title>Form</title>
+        <link rel = " stylesheet" href="{{ url_for('static', filename='Form.css') }}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <img src="{{ url_for('static', filename='ultimatereviewimage.png') }}"/>
+        </header>
 <body>
     <div class="container">
         <div class="success-message">
