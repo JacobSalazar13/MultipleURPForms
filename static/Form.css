@@ -82,7 +82,7 @@ form button[type="submit"] {
   background-color: #2480f8;
   color: white;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
   overflow-wrap: break-word;
 
