@@ -89,11 +89,11 @@ def form():
             "pysch": {"Service": "AP Psychology Ultimate Review Packet", "ID": 31},
             "stats": {"Service": "AP Statistics Ultimate Review Packet", "ID": 39},
             "usgov": {
-                "Service": "AP U.S. Government and Politics Ultimate Review Packet",
+                "Service": "AP US Government and Politics Ultimate Review Packet",
                 "ID": 40,
             },
             "ushistory": {
-                "Service": "AP U.S. History Ultimate Review Packet",
+                "Service": "AP US History Ultimate Review Packet",
                 "ID": 34,
             },
             "world": {"Service": "AP World History Ultimate Review Packet", "ID": 42},
