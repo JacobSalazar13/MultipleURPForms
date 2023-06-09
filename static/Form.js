@@ -94,5 +94,5 @@ function validateForm() {
         return false; // Prevent the form from submitting
     }
     }
-
+updateSubmitButtonVisibility();
 
