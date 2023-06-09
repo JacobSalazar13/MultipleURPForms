@@ -12,7 +12,7 @@
     </head>
     <body>
         <header>
-            <img src="{{ url_for('static', filename='ultimatereviewimage.svg') }}"/>
+            <img id="header-image" src="{{ url_for('static', filename='ultimatereviewimage.svg') }}"/>
         </header>
         <main>
             <form action = "{{ url_for('form') }}" method = "post" id = 'multi-page-form' onsubmit="return validateForm()"> 
