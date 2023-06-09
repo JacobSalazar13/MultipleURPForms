@@ -68,6 +68,9 @@ header {
   padding: 10px 0;
   color: #fff; /* White text color on header */
 }
+header > img{
+  
+}
 
 form label {
   margin-bottom: 5px;
