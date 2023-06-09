@@ -68,9 +68,15 @@ header {
   padding: 10px 0;
   color: #fff; /* White text color on header */
 }
-header > img{
-  
+
+header > img {
+  display: block;  /* To use margin auto for centering */
+  margin: 0 auto;  /* To center the image */
+  width: 90%;    /* Set width to 90% of the parent's width */
+  height: auto;   /* Let the browser set the height automatically to maintain the aspect ratio */
+  object-fit: contain;  /* To keep aspect ratio of the image */
 }
+
 
 form label {
   margin-bottom: 5px;
