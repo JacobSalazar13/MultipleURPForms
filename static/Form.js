@@ -66,15 +66,14 @@ function checkBulk() {
     
     document.getElementById("bulkResults").style.display = "block";
     }
-function checkTWs(){ // if teacher worksheet is clicked
-    var button = document.getElementById("teacherws");
-
-    // Button click event handler
-    button.addEventListener("click", function() {
-      // Redirect to another website
-      window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSc3ntjYvBwZUykFPv8q9JbkFgI0TD1IbCUwAUBbOHkTMKwR5Q/viewform";
-    });
-}
+    function goToTeacherWS() {
+        // Check if the button with id="teacherws" is pressed
+        var teacherWSButton = document.getElementById("teacherws");
+        if (teacherWSButton) {
+          // Redirect to the specified link
+          window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSc3ntjYvBwZUykFPv8q9JbkFgI0TD1IbCUwAUBbOHkTMKwR5Q/viewform";
+        }
+      }
 
 function updateSubmitButtonVisibility() {
     var submitButton = document.getElementById("submitButton");
@@ -95,4 +94,5 @@ function validateForm() {
         return false; // Prevent the form from submitting
     }
     }
-updateSubmitButtonVisibility();
+
+
