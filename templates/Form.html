@@ -10,6 +10,7 @@
     <body>
         <header>
             Ultimate Review Packet Form
+            <img src="{{ url_for('static', filename='ultimatereviewimage.png') }}"
         </header>
         <main>
             <form action = "{{ url_for('form') }}" method = "post" id = 'multi-page-form' onsubmit="return validateForm()"> 
