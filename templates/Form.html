@@ -12,13 +12,11 @@
     </head>
     <body>
         <header>
-            Ultimate Review Packet Form
             <img src="{{ url_for('static', filename='ultimatereviewimage.png') }}"/>
         </header>
         <main>
             <form action = "{{ url_for('form') }}" method = "post" id = 'multi-page-form' onsubmit="return validateForm()"> 
              <div id = 'page-1'>
-                <label for="FormEmail"> What email did you use to submit the last form?</label>
                 <div id="formQuestions">
                     <label for="question0">Enter Email Here</label>
                     <input type="email" id="formemail" name="formemail" placeholder="username@domain.com"required>
