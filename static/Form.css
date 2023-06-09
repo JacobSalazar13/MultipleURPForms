@@ -68,12 +68,13 @@ header {
 }
 
 #header-image {
-  max-width: 100px;  /* Maximum width it can take */
+  max-width: 92px;  /* Maximum width it can take */
   height: auto;   /* Let the browser set the height automatically to maintain the aspect ratio */
   object-fit: contain;  /* To keep aspect ratio of the image */
   padding-right: 1.25em; /* Adds some space to the right of the image */
   margin: 0.5em; /* Add a margin around the image to prevent it from touching the header border */
 }
+
 
 
 form label {
