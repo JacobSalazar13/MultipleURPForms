@@ -4,12 +4,18 @@ import functools
 import google.cloud.logging
 import logging
 import time
+from servicemapping import service_id_mapping
+from werkzeug.utils import secure_filename
+from storage import upload_blob, generate_session_id
 app = Flask(__name__)
 
 
 def log(message, client):
-    logging.warning(message)
-    print(message)
+    try:
+        logging.warning(message)
+        print(message)
+    except:
+        pass
 
 
 def nocache(view):
@@ -32,15 +38,22 @@ def form():
     if request.method == "GET":
         return render_template("Form.html")
     else:
+        db = firestore.Client()
         selectedValue = request.form.get("bulk")
-        if selectedValue == "I am a teacher or school employee and I want to request a free teacher trial":
+        if (
+            selectedValue
+            == "I am a teacher or school employee and I want to request a free teacher trial"
+        ):
             # Redirect to the Google Form
             return redirect("https://forms.gle/vDuq13XEnBLhkf7i6")
         elif selectedValue == "I am a student or parent":
             # Redirect to ultimatereviewpackets.com
             return redirect("https://www.ultimatereviewpacket.com/")
-        client = google.cloud.logging.Client()
-        client.setup_logging()
+        try:
+            client = google.cloud.logging.Client()
+            client.setup_logging()
+        except:
+            pass
         form_data = request.form.to_dict()
 
         subjects = [
@@ -63,50 +76,20 @@ def form():
         ]
 
         # dictionary mapping for the services and product_ids
-        service_id_mapping = {
-            "calc_ab": {"Service": "AP Calculus AB Ultimate Review Packet", "ID": 36},
-            "calc_bc": {"Service": "AP Calculus BC Ultimate Review Packet", "ID": 29},
-            "chemistry": {"Service": "AP Chemistry Ultimate Review Packet", "ID": 24},
-            "english_lang": {
-                "Service": "AP English Language Ultimate Review Packet",
-                "ID": 32,
-            },
-            "environmental_science": {
-                "Service": "AP Environmental Science Ultimate Review Packet",
-                "ID": 25,
-            },
-            "euro_history": {
-                "Service": "AP European History Ultimate Review Packet",
-                "ID": 26,
-            },
-            "human_geo": {
-                "Service": "AP Human Geography Ultimate Review Packet",
-                "ID": 33,
-            },
-            "macro": {"Service": "AP Macroeconomics Ultimate Review Packet", "ID": 27},
-            "micro": {"Service": "AP Microeconomics Ultimate Review Packet", "ID": 28},
-            "physics1": {"Service": "AP Physics 1 Ultimate Review Packet", "ID": 38},
-            "pysch": {"Service": "AP Psychology Ultimate Review Packet", "ID": 31},
-            "stats": {"Service": "AP Statistics Ultimate Review Packet", "ID": 39},
-            "usgov": {
-                "Service": "AP US Government and Politics Ultimate Review Packet",
-                "ID": 40,
-            },
-            "ushistory": {
-                "Service": "AP US History Ultimate Review Packet",
-                "ID": 34,
-            },
-            "world": {"Service": "AP World History Ultimate Review Packet", "ID": 42},
-        }
 
         services = []
         product_ids = []
         amounts = []
         quantities = []
+        list_of_subjects = []
+        sampleCodes = []
+        thinkificCodes = []
+        worksheetCodes = []
 
         for index, subject in enumerate(subjects):
             quantity = "li{}".format(index + 2)
             try:
+                adding = {}
                 form_data["quantity_{}".format(subject)] = int(
                     form_data.get(f"{quantity}")
                 )  # renaming the key
@@ -114,36 +97,92 @@ def form():
                     form_data["quantity_{}".format(subject)] * 15
                 )
                 form_data[subject] = subject
-                log("added quote_{}".format(subject), client)
+
+                try:
+                    log("added quote_{}".format(subject), client)
+                except:
+                    pass
                 service = service_id_mapping.get("{}".format(subject)).get("Service")
                 services.append(service)
-                log("added {}".format(service), client)
+                try:
+                    log("added {}".format(service), client)
+                except:
+                    pass
+                try:
+                    fullname = form_data["full_name{}".format(index + 2)]
+                    email = form_data["email{}".format(index + 2)]
+                    adding["{}".format(service)] = {
+                        "quantity": quantity,
+                        "email": email,
+                        "fullname": fullname,
+                    }
+                    list_of_subjects.append(adding)
+                except Exception as e:
+                    print(e)
                 product = service_id_mapping.get("{}".format(subject)).get("ID")
                 product_ids.append(product)
+                thinkificCode = service_id_mapping.get("{}".format(subject)).get(
+                    "ThinkificCode"
+                )
+                thinkificCodes.append(thinkificCode)
+                worksheetCode = service_id_mapping.get("{}".format(subject)).get(
+                    "WorksheetCodes"
+                )
+                worksheetCodes.append(worksheetCode)
+                sampleCode = service_id_mapping.get("{}".format(subject)).get(
+                    "SampleCodes"
+                )
+                sampleCodes.append(sampleCode)
                 quantity = form_data["quantity_{}".format(subject)]
                 quantities.append(quantity)
                 amount = form_data["quote_" + subject]
                 amounts.append(amount)
-                log("added {}".format(product), client)
+                try:
+                    log("added {}".format(product), client)
+                except:
+                    pass
             except Exception as e:
-                log("couldnt get {} - {}".format(subject, str(e)), client)
+                try:
+                    log("couldnt get {} - {}".format(subject, str(e)), client)
+                except:
+                    pass
         # add services and product_ids to form_data
         form_data["services"] = ",".join(services)
         form_data["product_ids"] = ",".join(map(str, product_ids))
         form_data["services_list"] = services
         form_data["product_ids_list"] = product_ids
-        form_data['quantities'] = ",".join(map(str, quantities))
-        form_data['quantities_list'] = quantities
-        form_data['amounts'] = ",".join(map(str, amounts))
-        form_data['amounts_list'] = amounts
-
-        log(str(form_data), client)
-        form_data['timestamp'] = time.time()
+        form_data["quantities"] = ",".join(map(str, quantities))
+        form_data["quantities_list"] = quantities
+        form_data["amounts"] = ",".join(map(str, amounts))
+        form_data["amounts_list"] = amounts
+        form_data["subject_data_list"] = list_of_subjects
+        form_data["sampleCodes"] = sampleCodes
+        form_data["thinkificCodes"] = thinkificCodes
+        form_data["worksheetCode"] = worksheetCodes
+        try:
+            log(str(form_data), client)
+        except:
+            pass
+        form_data["timestamp"] = time.time()
+        file = request.files['purchaseOrderFile']
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        else:
+            session_id = generate_session_id(7)
+            filename = secure_filename(file.filename)
+            file_url = upload_blob(
+                    session_id, filename, file
+                )
+            form_data['purchaseOrderURL'] = file_url
 
         response = requests.post(
             "https://hooks.zapier.com/hooks/catch/6860943/3tpp32p/", json=form_data
         )
         time.sleep(20)
+        doc_ref = db.collection(u'Sessions').document(session_id)
+        doc_ref.set(form_data)
+        print(form_data)
         return render_template("success.html")
 
 

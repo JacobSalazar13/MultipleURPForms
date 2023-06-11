@@ -52,27 +52,32 @@
             
             <div id = 'page-2' style='display: none;'>
                 <div class="container">
-                <label for="payment">How do you plan to pay?</label>
+                  <div id = "payment-question" class="payment-question">
+                    <label for="payment">How do you plan to pay?</label>
                     <label>
-                        <input type="radio" name="payment" value="Email me an invoice so I can pay online">
-                        Email me an invoice so I can pay online
-                      </label>
-                      <label>
-                        <input type="radio" name="payment" value="Email me an invoice so I can send a check in the mail">
-                        Email me an invoice so I can send a check in the mail
-                      </label>
-                      <label>
-                        <input type="radio" name="payment" value="I want to submit a purchase order or send a check">
-                        I want to submit a purchase order or send a check
-                      </label>
-                      <label>
-                        <input type="radio" name="payment" value="I would like an official quote before I submit a purchase order">
-                        I would like an official quote before I submit a purchase order
-                      </label>
-                      <br>
-                      <br>
-                      <br>
-                
+                      <input type="radio" name="payment" value="Email me an invoice so I can pay online">
+                      Email me an invoice so I can pay online
+                    </label>
+                    <label>
+                      <input type="radio" name="payment" value="Email me an invoice so I can send a check in the mail">
+                      Email me an invoice so I can send a check in the mail
+                    </label>
+                    <label>
+                      <input type="radio" name="payment" id="purchaseOrder" value="I want to submit a purchase order or send a check and get a quote">
+                      I want to submit a purchase order or send a check
+                    </label>
+                    <label>
+                      <input type="radio" name="payment" value="I would like an official quote before I submit a purchase order">
+                      I would like an official quote before I submit a purchase order
+                    </label>
+                    <div id="purchaseOrderInput" style="display: none;">
+                        <label for="purchaseOrderFile">Upload Purchase Order (PDF or DOCX):</label>
+                        <input type="file" id="purchaseOrderFile" name="purchaseOrderFile" accept=".pdf, .docx">
+                    </div>
+                  </div>
+                </div>                      
+                    <br>
+                    <br>                
                     <h1 class="disclaimer"> The Ultimate Review Packet is sold with a per-student license for one school year. You must order at least 10 to get the bulk discount.</h1>
                     <br>
                     <br>
@@ -96,7 +101,7 @@
                     <input type="text" id="full_name2" name="full_name2">
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
-                    <input type="email" id="email" placeholder="username@domain.com">
+                    <input type="email" id="email2" name="email2" placeholder="username@domain.com">
                     <input type="hidden" name="hiddenfield" value="AP Calculus AB Ultimate Review Packet">
                 </div> 
                 <br>
@@ -112,7 +117,7 @@
                     <input type="text" id="full_name3" name="full_name3">
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
-                    <input type="email" id="email" placeholder="username@domain.com">
+                    <input type="email" id="email3" name="email3" placeholder="username@domain.com">
                     <input type="hidden" name="hiddenfield" value="AP Calculus BC Ultimate Review Packet">
                 </div> 
                 <br>
@@ -128,7 +133,7 @@
                     <input type="text" id="full_name4" name="full_name4">
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
-                    <input type="email" id="email" placeholder="username@domain.com">
+                    <input type="email" id="email4" name="email4" placeholder="username@domain.com">
                     <input type="hidden" name="hiddenfield" value="AP Chemistry Ultimate Review Packet">
                 </div> 
                 <br>
@@ -144,7 +149,7 @@
                     <input type="text" id="full_name5" name="full_name5">
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
-                    <input type="email" id="email" placeholder="username@domain.com">
+                    <input type="email" id="email5" name="email5" placeholder="username@domain.com">
                     <input type="hidden" name="hiddenfield" value="AP English Language and Composition Ultimate Review Packet">
                 </div> 
                 <br>
@@ -160,7 +165,7 @@
                     <input type="text" id="full_name6" name="full_name6">
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
-                    <input type="email" id="email" placeholder="username@domain.com">
+                    <input type="email" id="email6" name="email6" placeholder="username@domain.com">
                     <input type="hidden" name="hiddenfield" value="AP Environmental Science Ultimate Review Packet">
                 </div> 
                 <br>
@@ -176,7 +181,7 @@
                     <input type="text" id="full_name7" name="full_name7">
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
-                    <input type="email" id="email" placeholder="username@domain.com">
+                    <input type="email" id="email7" name="email7" placeholder="username@domain.com">
                     <input type="hidden" name="hiddenfield" value="AP European History Ultimate Review Packet">
                 </div> 
                 <br>
@@ -192,7 +197,7 @@
                     <input type="text" id="full_name8" name="full_name8">
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
-                    <input type="email" id="email" placeholder="username@domain.com">
+                    <input type="email" id="email8" name="email8" placeholder="username@domain.com">
                     <input type="hidden" name="hiddenfield" value="AP Human Geography Ultimate Review Packet">
                 </div> 
                 <br>
@@ -208,7 +213,7 @@
                     <input type="text" id="full_name9" name="full_name9">
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
-                    <input type="email" id="email" placeholder="username@domain.com">
+                    <input type="email" id="email9" name="email9" placeholder="username@domain.com">
                     <input type="hidden" name="hiddenfield" value="AP Macroeconomics Ultimate Review Packet">
                 </div> 
                 <br>
@@ -224,7 +229,7 @@
                     <input type="text" id="full_name10" name="full_name10">
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
-                    <input type="email" id="email" placeholder="username@domain.com">
+                    <input type="email" id="email10" name="email10" placeholder="username@domain.com">
                     <input type="hidden" name="hiddenfield" value="AP Microeconomics Ultimate Review Packet">
                 </div> 
                 <br>
@@ -240,7 +245,7 @@
                     <input type="text" id="full_name11" name="full_name11">
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
-                    <input type="email" id="email" placeholder="username@domain.com">
+                    <input type="email" id="email11" name="email11" placeholder="username@domain.com">
                     <input type="hidden" name="hiddenfield" value="AP Physics 1 Ultimate Review Packet">
                 </div> 
                 <br>
@@ -256,7 +261,7 @@
                     <input type="text" id="full_name12" name="full_name12">
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
-                    <input type="email" id="email" placeholder="username@domain.com">
+                    <input type="email" id="email12" name="email12" placeholder="username@domain.com">
                     <input type="hidden" name="hiddenfield" value="AP Psychology Ultimate Review Packet">
                 </div> 
                 <br>
@@ -281,7 +286,7 @@
                     <input type="text" id="full_name14" name="full_name14">
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
-                    <input type="email" id="email" placeholder="username@domain.com">
+                    <input type="email" id="email14" name="email14" placeholder="username@domain.com">
                     <input type="hidden" name="hiddenfield" value="AP US Government and Politics Ultimate Review Packet">
                 </div> 
                 <br>
@@ -297,7 +302,7 @@
                     <input type="text" id="full_name15" name="full_name15">
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
-                    <input type="email" id="email" placeholder="username@domain.com">
+                    <input type="email" id="email15" name="email5" placeholder="username@domain.com">
                     <input type="hidden" name="hiddenfield" value="AP US History Ultimate Review Packet">
                 </div> 
                 <br>
@@ -313,7 +318,7 @@
                     <input type="text" id="full_name16" name="full_name16">
                     <br>
                     <label for="question3">What is the school email of the teacher that will be using these resources?</label>
-                    <input type="email" id="email" placeholder="username@domain.com">
+                    <input type="email" id="email16" name="email6" placeholder="username@domain.com">
                     <input type="hidden" name="hiddenfield" value="AP World History Ultimate Review Packet">
                 </div> 
                 <br>
