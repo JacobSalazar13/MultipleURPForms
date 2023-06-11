@@ -7,6 +7,8 @@ import time
 from servicemapping import service_id_mapping
 from werkzeug.utils import secure_filename
 from storage import upload_blob, generate_session_id
+from google.cloud import firestore
+
 app = Flask(__name__)
 
 

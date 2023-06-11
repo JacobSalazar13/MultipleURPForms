@@ -3,7 +3,6 @@ import google.auth
 import datetime
 import random
 import string
-from google.cloud import firestore
 
 def upload_blob(userID, filename, file):
     """Uploads a file to the bucket."""
