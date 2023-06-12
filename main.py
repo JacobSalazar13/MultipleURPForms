@@ -174,9 +174,11 @@ def form():
                 pass
             else:
                 filename = secure_filename(file.filename)
+                log(f"{filename}", client)
                 file_url = upload_blob(
                     session_id, filename, file
                     )
+                log(f"{file_url}", client)
                 form_data['purchaseOrderURL'] = file_url
         except:
             print("No file")
