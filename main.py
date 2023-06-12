@@ -161,6 +161,7 @@ def form():
         form_data["sampleCodes"] = sampleCodes
         form_data["thinkificCodes"] = thinkificCodes
         form_data["worksheetCode"] = worksheetCodes
+        session_id = generate_session_id(7)
         try:
             log(str(form_data), client)
         except:
@@ -172,7 +173,6 @@ def form():
                 log('No selected fil', client)
                 pass
             else:
-                session_id = generate_session_id(7)
                 filename = secure_filename(file.filename)
                 file_url = upload_blob(
                     session_id, filename, file
