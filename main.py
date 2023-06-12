@@ -183,7 +183,7 @@ def form():
         except Exception as e: 
             print("No file")
             log("no file logged", client)
-            log("{}".format(error), client)
+            log("{}".format(e), client)
         response = requests.post(
             "https://hooks.zapier.com/hooks/catch/6860943/3tpp32p/", json=form_data
         )
