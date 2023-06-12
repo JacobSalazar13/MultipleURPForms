@@ -199,7 +199,11 @@ def form():
         doc_ref = db.collection(u'Sessions').document(session_id)
         doc_ref.set(form_data)
         print(form_data)
-        return render_template("success.html")
+        return redirect(url_for("route_success", order_id=session_id))
+
+@app.route("/success/<order_id>")
+def route_success(order_id):
+    return render_template("success.html", order_id=order_id)
 
 
 if __name__ == "__main__":
