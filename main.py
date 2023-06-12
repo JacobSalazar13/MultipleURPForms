@@ -186,10 +186,12 @@ def form():
                     )
                 log(f"{file_url}", client)
                 form_data['purchaseOrderURL'] = file_url
+                log(str(form_data), client)
         except Exception as e: 
             print("No file")
             log("no file logged", client)
             log("{}".format(e), client)
+        
         response = requests.post(
             "https://hooks.zapier.com/hooks/catch/6860943/3tpp32p/", json=form_data
         )
