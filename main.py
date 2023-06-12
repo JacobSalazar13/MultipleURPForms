@@ -173,10 +173,10 @@ def form():
                 log('No selected fil', client)
                 pass
             else:
-                filename = secure_filename(file.filename)
-                log(f"{filename}", client)
+          #      filename = secure_filename(file.filename)
+                log(f"{file.filename}", client)
                 file_url = upload_blob(
-                    session_id, filename, file
+                    session_id, file.filename, file
                     )
                 log(f"{file_url}", client)
                 form_data['purchaseOrderURL'] = file_url
