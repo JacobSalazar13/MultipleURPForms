@@ -169,8 +169,8 @@ def form():
             form_data["timestamp"] = time.time()
             file = request.files['purchaseOrderFile']
             if file.filename == '':
-                flash('No selected fil')
-                return redirect(request.url)
+                log('No selected fil', client)
+                pass
             else:
                 session_id = generate_session_id(7)
                 filename = secure_filename(file.filename)
