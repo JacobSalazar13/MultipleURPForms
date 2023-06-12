@@ -165,23 +165,26 @@ def form():
             log(str(form_data), client)
         except:
             pass
-        form_data["timestamp"] = time.time()
-        file = request.files['purchaseOrderFile']
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        else:
-            session_id = generate_session_id(7)
-            filename = secure_filename(file.filename)
-            file_url = upload_blob(
+        try:
+            form_data["timestamp"] = time.time()
+            file = request.files['purchaseOrderFile']
+            if file.filename == '':
+                flash('No selected fil')
+                return redirect(request.url)
+            else:
+                session_id = generate_session_id(7)
+                filename = secure_filename(file.filename)
+                file_url = upload_blob(
                     session_id, filename, file
-                )
-            form_data['purchaseOrderURL'] = file_url
-
+                    )
+                form_data['purchaseOrderURL'] = file_url
+        except:
+            print("No file")
+            log("no file logged", client)
         response = requests.post(
             "https://hooks.zapier.com/hooks/catch/6860943/3tpp32p/", json=form_data
         )
-        time.sleep(20)
+       # time.sleep(20)
         doc_ref = db.collection(u'Sessions').document(session_id)
         doc_ref.set(form_data)
         print(form_data)
