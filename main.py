@@ -162,15 +162,21 @@ def form():
         form_data["thinkificCodes"] = thinkificCodes
         form_data["worksheetCode"] = worksheetCodes
         session_id = generate_session_id(7)
+        form_data['ID'] = session_id
         try:
             log(str(form_data), client)
         except:
             pass
         try:
             form_data["timestamp"] = time.time()
-            file = request.files['purchaseOrderFile']
+            log("got timestamp", client)
+            try:
+                file = request.files['purchaseOrderFile']
+                log("got {}".format(str(file.filename)), client)
+            except Exception as e:
+                log(f"{e}", client)
             if file.filename == '':
-                log('No selected fil', client)
+                log('No selected file', client)
                 pass
             else:
           #      filename = secure_filename(file.filename)
