@@ -60,151 +60,103 @@ def form():
         except:
             pass
         form_data = request.form.to_dict()
-        
-        subjects = [
-        "APBio",
-        "APCalcAB",
-        "APCalcBC",
-        "APChem",
-        "APLangComp",
-        "APEnvSci",
-        "APEuroHist",
-        "APHumGeo",
-        "APMacro",
-        "APMicro",
-        "APPhysics",
-        "APPsych",
-        "APStats",
-        "APGovPol",
-        "APUSH",
-        "APWorldHist",
-    ]
-        # dictionary mapping for the services and product_ids
-
-        services = []
-        product_ids = []
-        amounts = []
-        quantities = []
-        list_of_subjects = []
-        sampleCodes = []
-        thinkificCodes = []
-        worksheetCodes = []
-
-        for index, subject in enumerate(subjects):
-            quantity = "li{}".format(index + 2)
-            try:
-                adding = {}
-                form_data["quantity_{}".format(subject)] = int(
-                    form_data.get(f"{quantity}")
-                )  # renaming the key
-                form_data["quote_" + subject] = (
-                    form_data["quantity_{}".format(subject)] * 15
-                )
-                form_data[subject] = subject
-
-                try:
-                    log("added quote_{}".format(subject), client)
-                except:
-                    pass
-                service = service_id_mapping.get("{}".format(subject)).get("Service")
-                services.append(service)
-                try:
-                    log("added {}".format(service), client)
-                except:
-                    pass
-                try:
-                    fullname = form_data["full_name{}".format(index + 2)]
-                    email = form_data["email{}".format(index + 2)]
-                    adding["{}".format(service)] = {
-                        "quantity": quantity,
-                        "email": email,
-                        "fullname": fullname,
-                    }
-                    list_of_subjects.append(adding)
-                except Exception as e:
-                    print(e)
-                product = service_id_mapping.get("{}".format(subject)).get("ID")
-                product_ids.append(product)
-                thinkificCode = service_id_mapping.get("{}".format(subject)).get(
-                    "ThinkificCode"
-                )
-                thinkificCodes.append(thinkificCode)
-                worksheetCode = service_id_mapping.get("{}".format(subject)).get(
-                    "WorksheetCodes"
-                )
-                worksheetCodes.append(worksheetCode)
-                sampleCode = service_id_mapping.get("{}".format(subject)).get(
-                    "SampleCodes"
-                )
-                sampleCodes.append(sampleCode)
-                quantity = form_data["quantity_{}".format(subject)]
-                quantities.append(quantity)
-                amount = form_data["quote_" + subject]
-                amounts.append(amount)
-                try:
-                    log("added {}".format(product), client)
-                except:
-                    pass
-            except Exception as e:
-                try:
-                    log("couldnt get {} - {}".format(subject, str(e)), client)
-                except:
-                    pass
-        # add services and product_ids to form_data
-        form_data["services"] = ",".join(services)
-        form_data["product_ids"] = ",".join(map(str, product_ids))
-        form_data["services_list"] = services
-        form_data["product_ids_list"] = product_ids
-        form_data["quantities"] = ",".join(map(str, quantities))
-        form_data["quantities_list"] = quantities
-        form_data["amounts"] = ",".join(map(str, amounts))
-        form_data["amounts_list"] = amounts
-        form_data["subject_data_list"] = list_of_subjects
-        form_data["sampleCodes"] = sampleCodes
-        form_data["thinkificCodes"] = thinkificCodes
-        form_data["worksheetCode"] = worksheetCodes
-        session_id = generate_session_id(7)
-        form_data['ID'] = session_id
-        try:
-            log(str(form_data), client)
-        except:
-            pass
-        try:
-            form_data["timestamp"] = time.time()
-            log("got timestamp", client)
-            try:
-                file = request.files['purchaseOrderFile']
-                log("got {}".format(str(file.filename)), client)
-            except Exception as e:
-                log(f"{e}", client)
-            if file.filename == '':
-                log('No selected file', client)
-                pass
-            else:
-          #      filename = secure_filename(file.filename)
-                log(f"{file.filename}", client)
-                file_url = upload_blob(
-                    session_id, file.filename, file
-                    )
-                log(f"{file_url}", client)
-                form_data['purchaseOrderURL'] = file_url
-                log(str(form_data), client)
-        except Exception as e: 
-            print("No file")
-            log("no file logged", client)
-            log("{}".format(e), client)
-        
-        response = requests.post(
-            "https://hooks.zapier.com/hooks/catch/6860943/3tpp32p/", json=form_data
-        )
-       # time.sleep(20)
-        try:
-            doc_ref = db.collection(u'Sessions').document(session_id)
-            doc_ref.set(form_data)
-        except:
-            pass
+        session_id=generate_session_id(5)
         print(form_data)
         print("got data")
+        # process the raw_data to get the format you want
+        processed_data = [
+            {
+                "AP Biology": {
+                    "quantity": form_data.get('APBio1', None),
+                    "name": form_data.get('APBio2', None),
+                    "email": form_data.get('APBio3', None)
+                },
+                "AP Calculus AB": {
+                    "quantity": form_data.get('APCalcAB1', None),
+                    "name": form_data.get('APCalcAB2', None),
+                    "email": form_data.get('APCalcAB3', None)
+                },
+                "AP Calculus BC": {
+                    "quantity": form_data.get('APCalcBC1', None),
+                    "name": form_data.get('APCalcBC2', None),
+                    "email": form_data.get('APCalcBC3', None)
+                },
+                "AP Chemisty": {
+                    "quantity": form_data.get('APChem1', None),
+                    "name": form_data.get('APChem2', None),
+                    "email": form_data.get('APChem3', None)
+                },
+                "AP English Language and Composition": {
+                    "quantity": form_data.get('APLangComp1', None),
+                    "name": form_data.get('APLangComp2', None),
+                    "email": form_data.get('APLangComp3', None)
+                },
+                "AP Environmental Science": {
+                    "quantity": form_data.get('APEnvSci1', None),
+                    "name": form_data.get('APEnvSci2', None),
+                    "email": form_data.get('APEnvSci3', None)
+                },
+                "AP European History": {
+                    "quantity": form_data.get('APEuroHist1', None),
+                    "name": form_data.get('APEuroHist2', None),
+                    "email": form_data.get('APEuroHist3', None)
+                },
+                "AP Human Geography": {
+                    "quantity": form_data.get('APHumGeo1', None),
+                    "name": form_data.get('APHumGeo1', None),
+                    "email": form_data.get('APHumGeo1', None)
+                },
+                "AP Macroeconomics": {
+                    "quantity": form_data.get('APMacro1', None),
+                    "name": form_data.get('APMacro2', None),
+                    "email": form_data.get('APMacro3', None)
+                },
+                "AP Microeconomics": {
+                    "quantity": form_data.get('APMicro1', None),
+                    "name": form_data.get('APMicro2', None),
+                    "email": form_data.get('APMicro3', None)
+                },
+                "AP Physics 1": {
+                    "quantity": form_data.get('APPhysics1', None),
+                    "name": form_data.get('APPhysics2', None),
+                    "email": form_data.get('APPhysics3', None)
+                },
+                "AP Psychology": {
+                    "quantity": form_data.get('APPsych1', None),
+                    "name": form_data.get('APPsych2', None),
+                    "email": form_data.get('APPsych2', None)
+                },
+                "AP Statistics": {
+                    "quantity": form_data.get('APStats1', None),
+                    "name": form_data.get('APStats2', None),
+                    "email": form_data.get('APStats3', None)
+                },
+                "AP US Government and Politics": {
+                    "quantity": form_data.get('APGovPol1', None),
+                    "name": form_data.get('APGovPol2', None),
+                    "email": form_data.get('APGovPol3', None)
+                },
+                "AP US History": {
+                    "quantity": form_data.get('APUSH1', None),
+                    "name": form_data.get('APUSH2', None),
+                    "email": form_data.get('APUSH3', None)
+                },
+                "AP World History": {
+                    "quantity": form_data.get('APWorldHist1', None),
+                    "name": form_data.get('APWorldHist1', None),
+                    "email": form_data.get('APWorldHist1', None)
+                },
+            }
+        ]
+        form_data["processed_data"] = processed_data
+        print(form_data)  # Prints the processed data to the console
+        quantities_list = [int(v.get('quantity')) for v in list(processed_data[0].values()) if len(v.get('quantity')) > 0]
+        services_list  = [k + " " + "Ultimate Review Packet" for k,v in list(processed_data[0].items()) if len(v.get('quantity')) > 0]
+        amounts_list = [15*int(quantity) for quantity in quantities_list]
+        form_data['quantities_list'] = quantities_list
+        form_data["services_list"] = services_list
+        form_data['amounts_list'] = amounts_list
+        print(form_data)
         return redirect(url_for("route_success", order_id=session_id))
 
 @app.route("/success/<order_id>")
