@@ -1,3 +1,7 @@
 Flask==2.0.1
 requests
 google-cloud-logging==3.*
+google-cloud-storage
+google-auth
+Werkzeug
+google-cloud-firestore==2.*

@@ -94,5 +94,13 @@ function validateForm() {
         return false; // Prevent the form from submitting
     }
     }
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('input[name="payment"]').forEach((el) => {
+        el.addEventListener('change', function() {
+        document.getElementById('purchaseOrderInput').style.display = (this.id === 'purchaseOrder' && this.checked) ? 'block' : 'none';
+        });
+    });
+    });
+    
 updateSubmitButtonVisibility();
 

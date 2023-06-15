@@ -3,20 +3,20 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  color: #333333; /* Dark text color that should be readable on light backgrounds */
+  color: #333333; 
 }
 
 .container {
   width: 50%;
-  margin: auto;
-  background-color: #f0f0f0; /* Light grey container color */
-  padding: 10px 10%;  /* Top-bottom padding of 20px, left-right padding of 20% */
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.1);
-  margin-top: 20px;
-  text-align: center wrap;
+  margin: 20px auto;
+  background-color: #f0f0f0; 
+  padding: 50px;  
+  border-radius: 30px;
+  box-shadow: 0px 0px 30px rgba(0,0,0,0.2);
+  margin-top: 82px;
   overflow-wrap: break-word;
 }
+
 .disclaimer{
   text-align: center;
   font-weight: bold;
@@ -36,8 +36,24 @@ body {
   }
 }
 
+fieldset {
+  width: 50%;
+  margin: 20px auto;
+  border-radius: 30px;
+  border-width: 2px;
+  padding: 50px;
+  border: none;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  background-color: #f0f0f0; 
+}
+
+legend{
+  font-size: 20px;
+  padding-top: 100px;
+}
+
 form {
-  text-align: center;
+  /* text-align: center; */
   margin-bottom: 20px;
   overflow-wrap: break-word;
 }
@@ -45,7 +61,6 @@ form {
 input[type="text"],
 input[type="number"],
 input[type="email"] {
-  outline: 2px solid black;
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -53,6 +68,7 @@ input[type="email"] {
   width: 300px;
   overflow-wrap: break-word;
 }
+
 input[type="text"]:focus:invalid,
 input[type="number"]:focus:invalid,
 input[type="email"] :focus:invalid{
@@ -60,20 +76,24 @@ input[type="email"] :focus:invalid{
 }
 
 header {
-  text-align: center;
+  /* text-align: center; */
   margin-bottom: 20px;
-  font-size: 24px;
-  font-weight: bold;
   background-color: #2480f8;
-  padding: 10px 0;
-  color: #fff; /* White text color on header */
+  padding: 1em 200px;
+  color: #fff; 
 }
-header > img{
-  
+
+#header-image {
+  max-width: 100px;  
+  max-height: 100px;
+  height: auto;   
+  object-fit: contain; 
+  padding-right: 1.25em; 
+  margin: 0.5em; 
 }
 
 form label {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   overflow-wrap: break-word;
 }
 
@@ -97,6 +117,10 @@ form button[type="submit"]:hover {
   overflow-wrap: break-word;
 
 }
+input[type="radio"] {
+  margin-left: 30px;
+}
+
 
 form label {
   display: block;
@@ -118,3 +142,241 @@ form input[type="radio"] + label {
 
 }
 
+.success-message {
+  text-align: center;
+  padding: 2em;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.1);
+}
+
+.success-message h1 {
+  color: #2480f8;
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.success-message p {
+  font-size: 1.2em;
+  line-height: 1.5;
+  color: #333333;
+}
+
+/* body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+}
+*/
+form #myForm{
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+label .page_2_form{
+  font-size: 16px;
+  line-height: 1.5;
+  display: block;
+  margin-bottom: 10px;
+}
+
+fieldset .fieldset_2{
+  width: 1000px;
+  margin: auto;
+} 
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.hidden {
+  display: none;
+  transition: all 0.5s ease-in-out;
+  padding-top: 50px;
+
+}
+
+.questions{
+  margin-top: 50px;
+}
+
+input[type="text"], 
+input[type="email"]{
+  width: 25%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  background-color: #007aff;
+  color: #fff;
+  border: none;
+  padding: 15px 25px;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+input[type="submit"]:active {
+  background-color: #004080;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 5px;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+tr {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+tr:nth-child(odd) {
+  animation-delay: 0.5s;
+}
+
+tr:nth-child(even) {
+  animation-delay: 1s;
+}
+td:hover {
+  background-color: #f5f5f5;
+  transition: background-color 0.3s ease;
+}
+td:hover {
+  color: #333333;
+  transition: color 0.3s ease;
+}
+
+td {
+  padding: 15px;
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+
+td:hover {
+  background-color: #83bee3;
+}
+
+
+.submit-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+button[type="button"]{
+  background-color: #007aff;
+  color: #fff;
+  border: none;
+  padding: 15px 25px;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  display: flex;
+  justify-content: center;
+}
+
+.select-box {
+  position: relative;
+  display: inline-block;
+
+}
+
+.selected-items {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.arrow {
+  margin-left: 5px;
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  display: none;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.options::-webkit-scrollbar {
+  width: 8px;
+}
+
+.options::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+
+.options::-webkit-scrollbar-track {
+  background-color: #eee;
+}
+.holder select {
+  width: 300px; /* Adjust the width as needed */
+}
+
+.select-box .options {
+  width: 300px; /* Adjust the width as needed */
+}
+
+.selected-items {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  gap: 10px;
+}
+
+.selected-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #add8e6;
+  border-radius: 40px;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.deselect {
+  width: 20px;
+  height: 20px;
+  background-color: #add8e6;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+.selected-item:hover .deselect {
+  background-color: #f00;
+  color: #fff;
+}
