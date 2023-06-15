@@ -53,7 +53,7 @@ def form():
             return redirect("https://forms.gle/vDuq13XEnBLhkf7i6")
         elif selectedValue == "I am a student or parent":
             # Redirect to ultimatereviewpackets.com
-            return redirect("https://www.ultimatereviewpacket.com/")
+            return render_template("student-parent.html")
         try:
             client = google.cloud.logging.Client()
             client.setup_logging()
@@ -151,6 +151,7 @@ def form():
         thinkificCodes = []
         workSheetCodes = []
         sampleCodes = []
+        product_ids_list = []
         services = [k  for k,v in list(processed_data[0].items()) if len(v.get('quantity')) > 0] 
         for service in services:
             try:
@@ -161,13 +162,25 @@ def form():
                 workSheetCodes.append(workSheetCode)
                 sampleCode = value.get('SampleCodes', None)
                 sampleCodes.append(sampleCode)
+                product_id = value.get('ID')
+                product_ids_list.append(product_id)
             except:
                 pass
 
         form_data['thinkificCodes'] = thinkificCodes
         form_data['workSheetCodes'] = workSheetCodes
         form_data['sampleCodes'] = sampleCodes
+        form_data['product_ids_list'] = product_ids_list
         print(form_data)
+        form_data['ID'] = session_id
+        response = requests.post(
+            "https://hooks.zapier.com/hooks/catch/6860943/3tpp32p/", json=form_data
+        )
+        try:
+            doc_ref = db.collection(u'Sessions').document(session_id)
+            doc_ref.set(form_data)
+        except:
+            pass
         return redirect(url_for("route_success", order_id=session_id))
 
 @app.route("/success/<order_id>")

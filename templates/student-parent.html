@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "utf-8">
+        <meta name = "viewport" content = "width-device-width, initial-scale-1">
+        <meta property="og:image" content="{{ url_for('static', filename='ultimatereviewimage.png') }}" />
+        <meta property="og:title" content="Order Form Instructions Page " />
+        <meta property="og:description" content="Are you a teacher? Order Ultimate Review Packets for your students to help them prepare for the 2024 AP Exams!" />
+        <title>Form</title>
+        <link rel = " stylesheet" href="{{ url_for('static', filename='Form.css') }}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <img id="header-image" src="{{ url_for('static', filename='ultimatereviewimage.svg') }}"/>
+        </header>
+<body>
+    <div class="container">
+        <div class="success-message">
+            <h1>Thank you for your interest in the Ultimate Review Packet!</h1>
+            <p>Bulk discounts are only available to teachers/schools that have a minimum of 10 students per subject. Please visit www.ultimatereviewpacket.com to buy an individual copy of the Ultimate Review Packet.</p>
+        </div>
+    </div>
+</body>
+</html>
