@@ -62,24 +62,23 @@ def form():
         form_data = request.form.to_dict()
         
         subjects = [
-            "calc_ab",
-            "calc_bc",
-            "chemistry",
-            "english_lang",
-            "environmental_science",
-            "euro_history",
-            "human_geo",
-            "macro",
-            "micro",
-            "physics1",
-            "pysch",
-            "stats",
-            "usgov",
-            "ushistory",
-            "world",
-            "worksheets",
-        ]
-
+        "APBio",
+        "APCalcAB",
+        "APCalcBC",
+        "APChem",
+        "APLangComp",
+        "APEnvSci",
+        "APEuroHist",
+        "APHumGeo",
+        "APMacro",
+        "APMicro",
+        "APPhysics",
+        "APPsych",
+        "APStats",
+        "APGovPol",
+        "APUSH",
+        "APWorldHist",
+    ]
         # dictionary mapping for the services and product_ids
 
         services = []
