@@ -16,7 +16,7 @@
             <img id="header-image" src="{{ url_for('static', filename='ultimatereviewimage.svg') }}"/>
         </header>
         <main>
-            <form action="{{ url_for('form') }}" method="post" id="multi-page-form" onsubmit="return validateForm()"> 
+            <form action="{{ url_for('form') }}" method="post" id="multi-page-form" onsubmit="return validateForm()" enctype="multipart/form-data"> 
                 <div id="page-1">
                     <fieldset class="fieldset-1">
                         <legend>Please provide your contact</legend>
@@ -73,15 +73,6 @@
                             <label for="purchaseOrderFile">Upload Purchase Order (PDF or DOCX):</label>
                             <input type="file" id="purchaseOrderFile" name="purchaseOrderFile" accept=".pdf, .docx">
                         </div>
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function() {
-                                document.querySelectorAll('input[name="payment"]').forEach((el) => {
-                                    el.addEventListener('change', function() {
-                                    document.getElementById('purchaseOrderInput').style.display = (this.id === 'purchaseOrder' && this.checked) ? 'block' : 'none';
-                                    });
-                                });
-                                });
-                        </script>
                         <label>
                             <input type="radio" name="payment" value="I would like an official quote before I submit a purchase order">
                             I would like an official quote before I submit a purchase order
@@ -367,5 +358,21 @@
             </form>
         </main>
         <script src="{{ url_for('static', filename='Form.js') }}"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var paymentOptions = document.querySelectorAll('input[name="payment"]');
+                var purchaseOrderInput = document.getElementById('purchaseOrderInput');
+
+                paymentOptions.forEach(function(option) {
+                    option.addEventListener('change', function() {
+                        if (this.value === 'I want to submit a purchase order or send a check') {
+                            purchaseOrderInput.style.display = 'block';
+                        } else {
+                            purchaseOrderInput.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        </script>
     </body>
 </html>

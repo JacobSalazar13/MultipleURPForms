@@ -173,6 +173,23 @@ def form():
         form_data['product_ids_list'] = product_ids_list
         print(form_data)
         form_data['ID'] = session_id
+        try:
+            form_data["timestamp"] = time.time()
+            file = request.files['purchaseOrderFile']
+            if file.filename == '':
+                flash('No selected fil')
+                return redirect(request.url)
+                log('No selected fil', client)
+                pass
+            else:
+                filename = secure_filename(file.filename)
+                file_url = upload_blob(
+                    session_id, filename, file
+                    )
+                form_data['purchaseOrderURL'] = file_url
+        except:
+            print("No file")
+            log("no file logged", client)
         response = requests.post(
             "https://hooks.zapier.com/hooks/catch/6860943/3tpp32p/", json=form_data
         )
