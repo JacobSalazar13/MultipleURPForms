@@ -40,7 +40,10 @@ def form():
     if request.method == "GET":
         return render_template("Form.html")
     else:
-        db = firestore.Client()
+        try:
+            db = firestore.Client()
+        except:
+            pass
         selectedValue = request.form.get("bulk")
         if (
             selectedValue
@@ -57,7 +60,7 @@ def form():
         except:
             pass
         form_data = request.form.to_dict()
-
+        
         subjects = [
             "calc_ab",
             "calc_bc",
@@ -196,9 +199,13 @@ def form():
             "https://hooks.zapier.com/hooks/catch/6860943/3tpp32p/", json=form_data
         )
        # time.sleep(20)
-        doc_ref = db.collection(u'Sessions').document(session_id)
-        doc_ref.set(form_data)
+        try:
+            doc_ref = db.collection(u'Sessions').document(session_id)
+            doc_ref.set(form_data)
+        except:
+            pass
         print(form_data)
+        print("got data")
         return redirect(url_for("route_success", order_id=session_id))
 
 @app.route("/success/<order_id>")
