@@ -36,7 +36,6 @@ function nextPage() {
         document.getElementById("page-" + currentPage).style.display = "none";
         currentPage++;
         document.getElementById("page-" + currentPage).style.display = "block";
-        updateSubmitButtonVisibility();
     }
 }
 
@@ -45,7 +44,6 @@ function previousPage() {
         document.getElementById("page-" + currentPage).style.display = "none";
         currentPage--;
         document.getElementById("page-" + currentPage).style.display = "block";
-        updateSubmitButtonVisibility();
     }
 }
 
@@ -75,14 +73,7 @@ function checkBulk() {
         }
       }
 
-function updateSubmitButtonVisibility() {
-    var submitButton = document.getElementById("submitButton");
-    if (currentPage === totalPage) {
-        submitButton.style.display = "block";
-    } else {
-        submitButton.style.display = "none";
-    }
-    }
+
 function validateForm() {
     // Check if the form is valid
     if (document.getElementById("multi-page-form").checkValidity()) {
@@ -102,5 +93,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     });
     
-updateSubmitButtonVisibility();
 

@@ -9,6 +9,7 @@
         <title>Form</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='Form.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <header>
@@ -19,6 +20,9 @@
                 <div id="page-1">
                     <fieldset class="fieldset-1">
                         <legend>Please provide your contact</legend>
+                        {% if error %}
+                        <p class="error">{{ error }}</p>
+                        {% endif %} 
                         <div id="formQuestions">
                             <label for="question0">Email</label>
                             <input type="email" id="formemail" name="formemail" placeholder="username@domain.com" required>
@@ -65,6 +69,19 @@
                             <input type="radio" name="payment" value="I want to submit a purchase order or send a check">
                             I want to submit a purchase order or send a check
                         </label>
+                        <div id="purchaseOrderInput" style="display: none;">
+                            <label for="purchaseOrderFile">Upload Purchase Order (PDF or DOCX):</label>
+                            <input type="file" id="purchaseOrderFile" name="purchaseOrderFile" accept=".pdf, .docx">
+                        </div>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                document.querySelectorAll('input[name="payment"]').forEach((el) => {
+                                    el.addEventListener('change', function() {
+                                    document.getElementById('purchaseOrderInput').style.display = (this.id === 'purchaseOrder' && this.checked) ? 'block' : 'none';
+                                    });
+                                });
+                                });
+                        </script>
                         <label>
                             <input type="radio" name="payment" value="I would like an official quote before I submit a purchase order">
                             I would like an official quote before I submit a purchase order
@@ -183,12 +200,8 @@
                         <div id="AP Biology Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
-                            <label for="APBio1">How many total licenses do you need for AP Biology?</label>
-                            <input type="text" id="APBio1" name="APBio1"><br>
-                            <label for="APBio2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
-                            <input type="text" id="APBio2" name="APBio2"><br>
-                            <label for="APBio3">What is the school email of the teacher that will be using these resources?</label>
-                            <input type="text" id="APBio3" name="APBio3"><br><br>
+                            <label for="APBio1">Unfortunately, the AP Biology Ultimate Review Packet isn't available right now. Are you interested in being notified when it becomes available?</label>
+                            <input type="radio" id="APBio1" name="APBio1"><br>
                         </div>
                         <div id="AP Calculus AB Ultimate Review Packet Question" class="hidden questions">
                             <hr>
@@ -290,12 +303,8 @@
                         <div id="AP Physics 1 Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
-                            <label for="APPhysics1">How many total licenses do you need for AP Physics 1?</label>
-                            <input type="text" id="APPhysics1" name="APPhysics1"><br>
-                            <label for="APPhysics2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
-                            <input type="text" id="APPhysics2" name="APPhysics2"><br>
-                            <label for="APPhysics3">What is the school email of the teacher that will be using these resources?</label>
-                            <input type="text" id="APPhysics3" name="APPhysics3"><br><br>
+                            <label for="APPhy1">Unfortunately, the AP Physics 1 Ultimate Review Packet isn't available right now. Are you interested in being notified when it becomes available?</label>
+                            <input type="radio" id="APPhy1" name="APPhy1"><br>
                         </div>
                         
                         <div id="AP Psychology Ultimate Review Packet Question" class="hidden questions">
@@ -312,12 +321,8 @@
                         <div id="AP Statistics Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
-                            <label for="APStats1">How many total licenses do you need for AP Statistics?</label>
-                            <input type="text" id="APStats1" name="APStats1"><br>
-                            <label for="APStats2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
-                            <input type="text" id="APStats2" name="APStats2"><br>
-                            <label for="APStats3">What is the school email of the teacher that will be using these resources?</label>
-                            <input type="text" id="APStats3" name="APStats3"><br><br>
+                            <label for="APStats">Unfortunately, the AP Statistics Ultimate Review Packet isn't available right now. Are you interested in being notified when it becomes available?</label>
+                            <input type="radio" id="APStats" name="APStats"><br>
                         </div>
                         
                         <div id="AP US Government and Politics Ultimate Review Packet Question" class="hidden questions">
@@ -351,12 +356,11 @@
                             <input type="text" id="APWorldHist2" name="APWorldHist2"><br>
                             <label for="APWorldHist3">What is the school email of the teacher that will be using these resources?</label>
                             <input type="text" id="APWorldHist3" name="APWorldHist3"><br><br>
-                        </div>                        
-                        <!-- Add similar code for other AP subjects -->
+                        </div>                       
                         <br>
                         <br>
                         <div class="submit-button-container">
-                            <input class="btn" type="submit" value="Submit">
+                            <input class="btn" type="submit" value="Submit" id = 'submitButton'>
                         </div>
                     </div>
                 </div>

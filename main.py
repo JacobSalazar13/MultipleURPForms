@@ -66,11 +66,7 @@ def form():
         # process the raw_data to get the format you want
         processed_data = [
             {
-                "AP Biology": {
-                    "quantity": form_data.get('APBio1', None),
-                    "name": form_data.get('APBio2', None),
-                    "email": form_data.get('APBio3', None)
-                },
+                
                 "AP Calculus AB": {
                     "quantity": form_data.get('APCalcAB1', None),
                     "name": form_data.get('APCalcAB2', None),
@@ -116,20 +112,10 @@ def form():
                     "name": form_data.get('APMicro2', None),
                     "email": form_data.get('APMicro3', None)
                 },
-                "AP Physics 1": {
-                    "quantity": form_data.get('APPhysics1', None),
-                    "name": form_data.get('APPhysics2', None),
-                    "email": form_data.get('APPhysics3', None)
-                },
                 "AP Psychology": {
                     "quantity": form_data.get('APPsych1', None),
                     "name": form_data.get('APPsych2', None),
                     "email": form_data.get('APPsych2', None)
-                },
-                "AP Statistics": {
-                    "quantity": form_data.get('APStats1', None),
-                    "name": form_data.get('APStats2', None),
-                    "email": form_data.get('APStats3', None)
                 },
                 "AP US Government and Politics": {
                     "quantity": form_data.get('APGovPol1', None),
@@ -151,11 +137,36 @@ def form():
         form_data["processed_data"] = processed_data
         print(form_data)  # Prints the processed data to the console
         quantities_list = [int(v.get('quantity')) for v in list(processed_data[0].values()) if len(v.get('quantity')) > 0]
+        for quantity in quantities_list:
+            if quantity < 10:
+                return render_template("Form.html", error = "Unfortunately, you cannot order an Ultimate Review Packet for less than 10 licenses. Please increase your order size.")
+            else:
+                pass
         services_list  = [k + " " + "Ultimate Review Packet" for k,v in list(processed_data[0].items()) if len(v.get('quantity')) > 0]
         amounts_list = [15*int(quantity) for quantity in quantities_list]
         form_data['quantities_list'] = quantities_list
         form_data["services_list"] = services_list
         form_data['amounts_list'] = amounts_list
+        print(form_data)
+        thinkificCodes = []
+        workSheetCodes = []
+        sampleCodes = []
+        services = [k  for k,v in list(processed_data[0].items()) if len(v.get('quantity')) > 0] 
+        for service in services:
+            try:
+                value = service_id_mapping.get(service, None)
+                thinkificCode = value.get('ThinkificCode', None)
+                thinkificCodes.append(thinkificCode)
+                workSheetCode = value.get('WorksheetCodes', None)
+                workSheetCodes.append(workSheetCode)
+                sampleCode = value.get('SampleCodes', None)
+                sampleCodes.append(sampleCode)
+            except:
+                pass
+
+        form_data['thinkificCodes'] = thinkificCodes
+        form_data['workSheetCodes'] = workSheetCodes
+        form_data['sampleCodes'] = sampleCodes
         print(form_data)
         return redirect(url_for("route_success", order_id=session_id))
 
