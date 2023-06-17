@@ -29,8 +29,5 @@ def upload_blob(userID, filename, file):
 
 
 
-def generate_session_id(length=10):
-    """Generate a random session ID of given length."""
-    characters = string.ascii_letters + string.digits
-    session_id = "".join(random.choice(characters) for _ in range(length))
-    return session_id
+def generate_session_id(length):
+    return ''.join(random.choice('0123456789') for _ in range(length))
