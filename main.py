@@ -77,7 +77,7 @@ def form():
                     "name": form_data.get('APCalcBC2', None),
                     "email": form_data.get('APCalcBC3', None)
                 },
-                "AP Chemisty": {
+                "AP Chemistry": {
                     "quantity": form_data.get('APChem1', None),
                     "name": form_data.get('APChem2', None),
                     "email": form_data.get('APChem3', None)
