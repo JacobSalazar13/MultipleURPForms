@@ -99,8 +99,8 @@ def form():
                 },
                 "AP Human Geography": {
                     "quantity": form_data.get('APHumGeo1', None),
-                    "name": form_data.get('APHumGeo1', None),
-                    "email": form_data.get('APHumGeo1', None)
+                    "name": form_data.get('APHumGeo2', None),
+                    "email": form_data.get('APHumGeo3', None)
                 },
                 "AP Macroeconomics": {
                     "quantity": form_data.get('APMacro1', None),
@@ -129,8 +129,8 @@ def form():
                 },
                 "AP World History": {
                     "quantity": form_data.get('APWorldHist1', None),
-                    "name": form_data.get('APWorldHist1', None),
-                    "email": form_data.get('APWorldHist1', None)
+                    "name": form_data.get('APWorldHist2', None),
+                    "email": form_data.get('APWorldHist3', None)
                 },
             }
         ]
