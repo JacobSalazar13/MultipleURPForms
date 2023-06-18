@@ -58,14 +58,14 @@ service_id_mapping = {
     "AP Macroeconomics": {
         "Service": "AP Macroeconomics Ultimate Review Packet",
         "ID": 27,
-        "ThinkificCode": 774578,
+        "ThinkificCode": 456043,
         "WorksheetCodes": 1509218,
         "SampleCodes": 772096,
     },
     "AP Microeconomics": {
         "Service": "AP Microeconomics Ultimate Review Packet",
         "ID": 28,
-        "ThinkificCode": 774560,
+        "ThinkificCode": 456615,
         "WorksheetCodes": 1509696,
         "SampleCodes": 772096,
     },
