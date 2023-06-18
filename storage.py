@@ -30,4 +30,4 @@ def upload_blob(userID, filename, file):
 
 
 def generate_session_id(length):
-    return ''.join(random.choice('0123456789') for _ in range(length))
+    return ''.join(random.choice('123456789') for _ in range(length))
