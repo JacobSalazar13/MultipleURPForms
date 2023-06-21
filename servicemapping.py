@@ -69,7 +69,7 @@ service_id_mapping = {
         "WorksheetCodes": 1509696,
         "SampleCodes": 772096,
     },
-    "AP Pyschology": {
+    "AP Psychology": {
         "Service": "AP Psychology Ultimate Review Packet",
         "ID": 31,
         "ThinkificCode": 1777461,
