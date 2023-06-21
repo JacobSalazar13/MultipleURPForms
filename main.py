@@ -115,7 +115,7 @@ def form():
                 "AP Psychology": {
                     "quantity": form_data.get('APPsych1', None),
                     "name": form_data.get('APPsych2', None),
-                    "email": form_data.get('APPsych2', None)
+                    "email": form_data.get('APPsych3', None)
                 },
                 "AP US Government and Politics": {
                     "quantity": form_data.get('APGovPol1', None),
