@@ -16,7 +16,7 @@
             <img id="header-image" src="{{ url_for('static', filename='ultimatereviewimage.svg') }}"/>
         </header>
         <main>
-            <form action="{{ url_for('form') }}" method="post" id="multi-page-form" onsubmit="return validateForm()" enctype="multipart/form-data"> 
+            <form action="{{ url_for('form') }}" method="post" id="multi-page-form" onsubmit="validateForm()" enctype="multipart/form-data"> 
                 <div id="page-1">
                     <fieldset class="fieldset-1">
                         <legend>Please provide your contact</legend>
@@ -140,74 +140,7 @@
                                 <label for="option16">AP World History Ultimate Review Packet</label>
                                 <br>
                             </div>
-                        </div>
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function () {
-                                var options = document.querySelectorAll('.select-box .options input[type="checkbox"]');
-                                var selectBox = document.querySelector('.select-box');
-                                var selectedItems = document.querySelector('.select-box .selected-items');
-
-                                options.forEach(function (option) {
-                                    option.addEventListener('change', function () {
-                                        updateSelectedItems();
-                                        toggleQuestions(option);
-                                    });
-                                });
-
-                                selectedItems.addEventListener('click', function (event) {
-                                    event.stopPropagation(); // Prevents the click from being detected by the document
-                                });
-
-                                selectBox.addEventListener('click', function (event) {
-                                    event.stopPropagation(); // Prevents the click from being detected by the document
-                                });
-
-                                // Close the dropdown if clicked outside
-                                document.addEventListener('click', function () {
-                                    var options = document.querySelector('.select-box .options');
-                                    options.style.display = 'none';
-                                });
-                            });
-
-                            function toggleQuestions(option) {
-                                var questions = document.getElementById(option.value + ' Question');
-                                if (questions) {
-                                    if (option.checked) {
-                                        questions.classList.remove('hidden');
-                                    } else {
-                                        questions.classList.add('hidden');
-                                    }
-                                }
-                            }
-
-                            function toggleOptions() {
-                                var options = document.querySelector('.select-box .options');
-                                if (options.style.display === 'none' || options.style.display === '') {
-                                    options.style.display = 'block';
-                                } else {
-                                    options.style.display = 'none';
-                                }
-                            }
-
-                            function updateSelectedItems() {
-                                var selectedItemsDiv = document.querySelector('.select-box .selected-items');
-                                var options = document.querySelectorAll('.select-box .options input[type="checkbox"]');
-                                var selectedOptions = Array.from(options).filter(option => option.checked);
-                                selectedItemsDiv.innerHTML = selectedOptions.length ? '' : '<div class="placeholder">Select options</div>';
-                                selectedOptions.forEach(function (option) {
-                                    var item = document.createElement('div');
-                                    item.classList.add('selected-item');
-                                    item.innerHTML = '<span>' + option.value + '</span><div class="deselect">x</div>';
-                                    item.querySelector('.deselect').addEventListener('click', function (e) {
-                                        e.stopPropagation();
-                                        option.checked = false;
-                                        updateSelectedItems();
-                                        toggleQuestions(option);  // Add this line
-                                    });
-                                    selectedItemsDiv.appendChild(item);
-                                });
-                            }
-                        </script>
+                        </div>               
                         <div id="AP Biology Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
@@ -378,6 +311,92 @@
             </form>
         </main>
         <script src="{{ url_for('static', filename='Form.js') }}"></script>
+        <script>
+            window.onload = function() {
+                document.getElementById('multi-page-form').addEventListener('submit', validateFormCustom);
+            };
+        
+            function validateFormCustom(event) {
+                let checkboxes = document.querySelectorAll('.select-box .options input[type="checkbox"]');
+                let selectedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+            
+                for (let checkbox of selectedCheckboxes) {
+                    let relatedInputs = document.querySelectorAll(`#${checkbox.id}Question input[type="text"]`);
+                    for (let input of relatedInputs) {
+                        if (input.value.trim() === '') {
+                            event.preventDefault(); // prevent form submission
+                            alert('Please complete all the related input fields for your selected options');
+                            return;
+                        }
+                    }
+                }
+            }
+            document.addEventListener('DOMContentLoaded', function () {
+                var options = document.querySelectorAll('.select-box .options input[type="checkbox"]');
+                var selectBox = document.querySelector('.select-box');
+                var selectedItems = document.querySelector('.select-box .selected-items');
+        
+                options.forEach(function (option) {
+                    option.addEventListener('change', function () {
+                        updateSelectedItems();
+                        toggleQuestions(option);
+                    });
+                });
+        
+                selectedItems.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                });
+        
+                selectBox.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                });
+        
+                document.addEventListener('click', function () {
+                    var options = document.querySelector('.select-box .options');
+                    options.style.display = 'none';
+                });
+            });            
+            // The rest of your JavaScript code goes here...
+                                    
+            function toggleQuestions(option) {
+                var questions = document.getElementById(option.value + ' Question');
+                if (questions) {
+                    if (option.checked) {
+                        questions.classList.remove('hidden');
+                    } else {
+                        questions.classList.add('hidden');
+                    }
+                }
+            }
+        
+            function toggleOptions() {
+                var options = document.querySelector('.select-box .options');
+                if (options.style.display === 'none' || options.style.display === '') {
+                    options.style.display = 'block';
+                } else {
+                    options.style.display = 'none';
+                }
+            }
+        
+            function updateSelectedItems() {
+                var selectedItemsDiv = document.querySelector('.select-box .selected-items');
+                var options = document.querySelectorAll('.select-box .options input[type="checkbox"]');
+                var selectedOptions = Array.from(options).filter(option => option.checked);
+                selectedItemsDiv.innerHTML = selectedOptions.length ? '' : '<div class="placeholder">Select options</div>';
+                selectedOptions.forEach(function (option) {
+                    var item = document.createElement('div');
+                    item.classList.add('selected-item');
+                    item.innerHTML = '<span>' + option.value + '</span><div class="deselect">x</div>';
+                    item.querySelector('.deselect').addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        option.checked = false;
+                        updateSelectedItems();
+                        toggleQuestions(option);
+                    });
+                    selectedItemsDiv.appendChild(item);
+                });
+            }
+        </script>         
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 var paymentOptions = document.querySelectorAll('input[name="payment"]');

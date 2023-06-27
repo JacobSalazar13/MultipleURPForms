@@ -19,6 +19,19 @@ def log(message, client):
     except:
         pass
 
+def validate_data(data):
+    if not data:
+        return False
+    else:
+        for dictionary in data:
+            for value in dictionary.values():
+                # Turn the values of the inner dictionary into a list
+                inner_values = list(value.values())
+                # Check if all elements are empty or all elements are non-empty
+                if not all(v == '' for v in inner_values) and not all(v != '' for v in inner_values):
+                    return False
+        return True
+
 
 def nocache(view):
     @functools.wraps(view)
@@ -179,7 +192,7 @@ def form():
             if file.filename == '':
                 flash('No selected fil')
                 return redirect(request.url)
-                log('No selected fil', client)
+                #log('No selected fil', client)
                 pass
             else:
                 filename = secure_filename(file.filename)
@@ -189,7 +202,12 @@ def form():
                 form_data['purchaseOrderURL'] = file_url
         except:
             print("No file")
-            log("no file logged", client)
+            #log("no file logged", client)
+        if validate_data(form_data['processed_data']):
+        # Continue your program...
+            pass
+        else:
+            return render_template("Form.html", error="Please make sure to fill out all required fields including Quantity, Teacher Name Who Will Be Using The Resources and Email")
         response = requests.post(
             "https://hooks.zapier.com/hooks/catch/6860943/3tpp32p/", json=form_data
         )
