@@ -223,9 +223,6 @@ def form():
             pass
         else:
             return render_template("Form.html", error="Please make sure to fill out all required fields including Quantity, Teacher Name Who Will Be Using The Resources and Email")
-        response = requests.post(
-            "https://hooks.zapier.com/hooks/catch/6860943/3tpp32p/", json=form_data
-        )
         try:
             doc_ref = db.collection(u'Sessions').document(session_id)
             doc_ref.set(form_data)
@@ -237,6 +234,9 @@ def form():
             form_data['emails_list'] = emails_list
             form_data['names_list'] = names_list
             print(form_data)
+            response = requests.post(
+            "https://hooks.zapier.com/hooks/catch/6860943/3tpp32p/", json=form_data
+        )
         except Exception as e:
             print("error" + str(e))
         return redirect(url_for("route_success", order_id=session_id))
