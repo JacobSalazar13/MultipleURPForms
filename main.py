@@ -98,6 +98,17 @@ def form():
                     "quantity": form_data.get('APCalcAB1', None),
                     "name": form_data.get('APCalcAB2', None),
                     "email": form_data.get('APCalcAB3', None)
+                }
+                , 
+                "AP Physics 1": {
+                    "quantity": form_data.get('APPhy1', None),
+                    "name": form_data.get('APPhy2', None),
+                    "email": form_data.get('APPhy3', None)
+                },
+                "AP Biology": {
+                    "quantity": form_data.get('APBio1', None),
+                    "name": form_data.get('APBio2', None),
+                    "email": form_data.get('APBio3', None)
                 },
                 "AP Calculus BC": {
                     "quantity": form_data.get('APCalcBC1', None),

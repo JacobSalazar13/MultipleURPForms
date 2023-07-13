@@ -5,3 +5,5 @@ google-cloud-storage
 google-auth
 Werkzeug
 google-cloud-firestore==2.*
+google-auth 
+google-auth-oauthlib
