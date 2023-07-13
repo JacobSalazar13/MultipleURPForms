@@ -24,26 +24,26 @@
                         <p class="error">{{ error }}</p>
                         {% endif %} 
                         <div id="formQuestions">
-                            <label for="question0">Email</label> <div id="email_error"></div>
+                            <label for="question0">Email</label>
                             <input type="email" id="formemail" name="formemail" placeholder="username@domain.com" required>
                             <br><br>
-                            <label for="questiona">Full Name</label> <div id="fullname_error"></div>
+                            <label for="questiona">Full Name</label>
                             <input type="text" id="formname" name="formname" required>
                             <br><br>
-                            <label for="questionb">What is the name of your school?</label> <div id="school_error"></div>
+                            <label for="questionb">What is the name of your school?</label>
                             <input type="text" id="formschool" name="formschool" required>
                             <br><br>
-                            <label for="question0">Bulk discounts are only available to teachers/schools</label> <div id="bulk_error"></div>
+                            <label for="question0">Bulk discounts are only available to teachers/schools</label>
                             <label>
-                                <input id = 'b' type="radio" name="bulk" value="I am a teacher or school employee and I want to place an order or receive a quote">
+                                <input type="radio" name="bulk" value="I am a teacher or school employee and I want to place an order or receive a quote">
                                 I am a teacher or school employee and I want to place an order or receive a quote
                             </label>
                             <label>
-                                <input id = 'b' type="radio" name="bulk" value="I am a teacher or school employee and I want to request a free teacher trial">
+                                <input type="radio" name="bulk" value="I am a teacher or school employee and I want to request a free teacher trial">
                                 I am a teacher or school employee and I want to request a free teacher trial
                             </label>
                             <label>
-                                <input id = 'b' type="radio" name="bulk" value="I am a student or parent">
+                                <input type="radio" name="bulk" value="I am a student or parent">
                                 I am a student or parent
                             </label>
                             <br><br>
@@ -56,17 +56,17 @@
                 </div>
                 <div id="page-2" style="display: none;">
                     <div class="container">
-                        <label for="payment">How do you plan to pay?</label> <div id="pay_error"></div>
+                        <label for="payment">How do you plan to pay?</label>
                         <label>
-                            <input id = "pay" type="radio" name="payment" value="Email me an invoice so I can pay online">
+                            <input type="radio" name="payment" value="Email me an invoice so I can pay online">
                             Email me an invoice so I can pay online
                         </label>
                         <label>
-                            <input id = "pay" type="radio" name="payment" value="Email me an invoice so I can send a check in the mail">
+                            <input type="radio" name="payment" value="Email me an invoice so I can send a check in the mail">
                             Email me an invoice so I can send a check in the mail
                         </label>
                         <label>
-                            <input id = "pay" type="radio" name="payment" value="I want to submit a purchase order or send a check and get a quote">
+                            <input type="radio" name="payment" value="I want to submit a purchase order or send a check and get a quote">
                             I want to submit a purchase order.
                         </label>
                         <div id="purchaseOrderInput" style="display: none;">
@@ -74,70 +74,69 @@
                             <input type="file" id="purchaseOrderFile" name="purchaseOrderFile" accept=".pdf, .docx">
                         </div>
                         <label>
-                            <input id = "pay" type="radio" name="payment" value="I would like an official quote before I submit a purchase order">
+                            <input type="radio" name="payment" value="I would like an official quote before I submit a purchase order">
                             I would like an official quote 
                         </label>
                         <br><br>
                         <h1 class="disclaimer">The Ultimate Review Packet is sold with a per-student license for one school year. You must order at least 10 to get the bulk discount.</h1>
                         <br><br>
-                        <div class="select-box"> 
-                            <div id="option_error"></div>
+                        <div class="select-box">
                             <div class="selected-items" onclick="toggleOptions()">
                                 <div class="placeholder">Select options</div>
                                 <span class="arrow">&#9662;</span>
                             </div>
                             <div class="options">
-                                <input type="checkbox" id="option" value="AP Biology Ultimate Review Packet">
+                                <input type="checkbox" id="option1" value="AP Biology Ultimate Review Packet">
                                 <label for="option1">AP Biology Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option" value="AP Calculus AB Ultimate Review Packet">
+                                <input type="checkbox" id="option2" value="AP Calculus AB Ultimate Review Packet">
                                 <label for="option2">AP Calculus AB Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option" value="AP Calculus BC Ultimate Review Packet">
+                                <input type="checkbox" id="option3" value="AP Calculus BC Ultimate Review Packet">
                                 <label for="option3">AP Calculus BC Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option" value="AP Chemistry Ultimate Review Packet">
+                                <input type="checkbox" id="option4" value="AP Chemistry Ultimate Review Packet">
                                 <label for="option4">AP Chemistry Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option" value="AP English Language and Composition Ultimate Review Packet">
+                                <input type="checkbox" id="option5" value="AP English Language and Composition Ultimate Review Packet">
                                 <label for="option5">AP English Language and Composition Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option" value="AP Environmental Science Ultimate Review Packet">
+                                <input type="checkbox" id="option6" value="AP Environmental Science Ultimate Review Packet">
                                 <label for="option6">AP Environmental Science Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option" value="AP European History Ultimate Review Packet">
+                                <input type="checkbox" id="option7" value="AP European History Ultimate Review Packet">
                                 <label for="option7">AP European History Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option" value="AP Human Geography Ultimate Review Packet">
+                                <input type="checkbox" id="option8" value="AP Human Geography Ultimate Review Packet">
                                 <label for="option8">AP Human Geography Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option" value="AP Macroeconomics Ultimate Review Packet">
+                                <input type="checkbox" id="option9" value="AP Macroeconomics Ultimate Review Packet">
                                 <label for="option9">AP Macroeconomics Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option" value="AP Microeconomics Ultimate Review Packet">
+                                <input type="checkbox" id="option10" value="AP Microeconomics Ultimate Review Packet">
                                 <label for="option10">AP Microeconomics Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option" value="AP Physics 1 Ultimate Review Packet">
+                                <input type="checkbox" id="option11" value="AP Physics 1 Ultimate Review Packet">
                                 <label for="option11">AP Physics 1 Ultimate Review Packet</label>
                                 <br>
                                 <br>
-                                <input type="checkbox" id="option" value="AP Psychology Ultimate Review Packet">
+                                <input type="checkbox" id="option12" value="AP Psychology Ultimate Review Packet">
                                 <label for="option12">AP Psychology Ultimate Review Packet</label>
                                 <br>
                                 <br>
-                                <input type="checkbox" id="option" value="AP Statistics Ultimate Review Packet">
+                                <input type="checkbox" id="option13" value="AP Statistics Ultimate Review Packet">
                                 <label for="option13">AP Statistics Ultimate Review Packet</label>
                                 <br>
                                 <br>
-                                <input type="checkbox" id="option" value="AP US Government and Politics Ultimate Review Packet">
+                                <input type="checkbox" id="option14" value="AP US Government and Politics Ultimate Review Packet">
                                 <label for="option14">AP US Government and Politics Ultimate Review Packet</label>
                                 <br>
                                 <br>
-                                <input type="checkbox" id="option" value="AP US History Ultimate Review Packet">
+                                <input type="checkbox" id="option15" value="AP US History Ultimate Review Packet">
                                 <label for="option15">AP US History Ultimate Review Packet</label>
                                 <br>
                                 <br>
-                                <input type="checkbox" id="option" value="AP World History Ultimate Review Packet">
+                                <input type="checkbox" id="option16" value="AP World History Ultimate Review Packet">
                                 <label for="option16">AP World History Ultimate Review Packet</label>
                                 <br>
                             </div>
@@ -145,12 +144,8 @@
                         <div id="AP Biology Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
-                            <label for="APBio1">How many total licenses do you need for AP Biology?</label>
-                            <input type="text" id="APBio1" name="APBio1"><br>
-                            <label for="APBio2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
-                            <input type="text" id="APBio2" name="APBio2"><br>
-                            <label for="APBio3">What is the school email of the teacher that will be using these resources?</label>
-                            <input type="text" id="APBio3" name="APBio3"><br><br>
+                            <label for="APBio1">Unfortunately, the AP Biology Ultimate Review Packet isn't available right now. Are you interested in being notified when it becomes available?</label>
+                            <input type="radio" id="APBio1" name="APBio1"><br>
                         </div>
                         <div id="AP Calculus AB Ultimate Review Packet Question" class="hidden questions">
                             <hr>
@@ -250,14 +245,10 @@
                         </div>
                         
                         <div id="AP Physics 1 Ultimate Review Packet Question" class="hidden questions">
-                             <hr>
+                            <hr>
                             <br><br>
-                            <label for="APPhy1">How many total licenses do you need for AP Physics 1?</label>
-                            <input type="text" id="APPhy1" name="APPhy1"><br>
-                            <label for="APPhy2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
-                            <input type="text" id="APPhy2" name="APPhy2"><br>
-                            <label for="APPhy3">What is the school email of the teacher that will be using these resources?</label>
-                            <input type="text" id="APPhy3" name="APPhy3"><br><br>
+                            <label for="APPhy1">Unfortunately, the AP Physics 1 Ultimate Review Packet isn't available right now. Are you interested in being notified when it becomes available?</label>
+                            <input type="radio" id="APPhy1" name="APPhy1"><br>
                         </div>
                         
                         <div id="AP Psychology Ultimate Review Packet Question" class="hidden questions">
