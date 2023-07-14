@@ -380,3 +380,7 @@ button[type="button"]{
   background-color: #f00;
   color: #fff;
 }
+
+#email_error, #fullname_error,#school_error, #bulk_error, #pay_error, #option_error{
+  color: red;
+}
