@@ -8,6 +8,8 @@
         <meta property="og:description" content="Are you a teacher? Order Ultimate Review Packets for your students to help them prepare for the 2024 AP Exams!" />
         <title>Form</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='Form.css') }}">
+        <link rel="stylesheet" href="/static/Form.css">
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
@@ -24,26 +26,26 @@
                         <p class="error">{{ error }}</p>
                         {% endif %} 
                         <div id="formQuestions">
-                            <label for="question0">Email</label>
+                            <label for="question0">Email</label> <div id="email_error"></div>
                             <input type="email" id="formemail" name="formemail" placeholder="username@domain.com" required>
                             <br><br>
-                            <label for="questiona">Full Name</label>
+                            <label for="questiona">Full Name</label> <div id="fullname_error"></div>
                             <input type="text" id="formname" name="formname" required>
                             <br><br>
-                            <label for="questionb">What is the name of your school?</label>
+                            <label for="questionb">What is the name of your school?</label> <div id="school_error"></div>
                             <input type="text" id="formschool" name="formschool" required>
                             <br><br>
-                            <label for="question0">Bulk discounts are only available to teachers/schools</label>
+                            <label for="question0">Bulk discounts are only available to teachers/schools</label> <div id="bulk_error"></div>
                             <label>
-                                <input type="radio" name="bulk" value="I am a teacher or school employee and I want to place an order or receive a quote">
+                                <input type="radio" id ="b" name="bulk" value="I am a teacher or school employee and I want to place an order or receive a quote">
                                 I am a teacher or school employee and I want to place an order or receive a quote
                             </label>
                             <label>
-                                <input type="radio" name="bulk" value="I am a teacher or school employee and I want to request a free teacher trial">
+                                <input type="radio" id ="b" name="bulk" value="I am a teacher or school employee and I want to request a free teacher trial">
                                 I am a teacher or school employee and I want to request a free teacher trial
                             </label>
                             <label>
-                                <input type="radio" name="bulk" value="I am a student or parent">
+                                <input type="radio" id ="b"  name="bulk" value="I am a student or parent">
                                 I am a student or parent
                             </label>
                             <br><br>
@@ -56,17 +58,17 @@
                 </div>
                 <div id="page-2" style="display: none;">
                     <div class="container">
-                        <label for="payment">How do you plan to pay?</label>
+                        <label for="payment">How do you plan to pay?</label> <div id="pay_error"></div>
                         <label>
-                            <input type="radio" name="payment" value="Email me an invoice so I can pay online">
+                            <input type="radio" id = "pay" name="payment" value="Email me an invoice so I can pay online">
                             Email me an invoice so I can pay online
                         </label>
                         <label>
-                            <input type="radio" name="payment" value="Email me an invoice so I can send a check in the mail">
+                            <input type="radio" id = "pay" name="payment" value="Email me an invoice so I can send a check in the mail">
                             Email me an invoice so I can send a check in the mail
                         </label>
                         <label>
-                            <input type="radio" name="payment" value="I want to submit a purchase order or send a check and get a quote">
+                            <input type="radio" id = "pay" name="payment" value="I want to submit a purchase order or send a check and get a quote">
                             I want to submit a purchase order.
                         </label>
                         <div id="purchaseOrderInput" style="display: none;">
@@ -74,174 +76,176 @@
                             <input type="file" id="purchaseOrderFile" name="purchaseOrderFile" accept=".pdf, .docx">
                         </div>
                         <label>
-                            <input type="radio" name="payment" value="I would like an official quote before I submit a purchase order">
+                            <input type="radio" id = "pay" name="payment" value="I would like an official quote before I submit a purchase order">
                             I would like an official quote 
                         </label>
                         <br><br>
                         <h1 class="disclaimer">The Ultimate Review Packet is sold with a per-student license for one school year. You must order at least 10 to get the bulk discount.</h1>
                         <br><br>
                         <div class="select-box">
+                            <div id="option_error"></div>
                             <div class="selected-items" onclick="toggleOptions()">
                                 <div class="placeholder">Select options</div>
                                 <span class="arrow">&#9662;</span>
                             </div>
                             <div class="options">
-                                <input type="checkbox" id="option1" value="AP Biology Ultimate Review Packet">
+                                <input type="checkbox" id="option" value="AP Biology Ultimate Review Packet">
                                 <label for="option1">AP Biology Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option2" value="AP Calculus AB Ultimate Review Packet">
+                                <input type="checkbox" id="option" value="AP Calculus AB Ultimate Review Packet">
                                 <label for="option2">AP Calculus AB Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option3" value="AP Calculus BC Ultimate Review Packet">
+                                <input type="checkbox" id="option" value="AP Calculus BC Ultimate Review Packet">
                                 <label for="option3">AP Calculus BC Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option4" value="AP Chemistry Ultimate Review Packet">
+                                <input type="checkbox" id="option" value="AP Chemistry Ultimate Review Packet">
                                 <label for="option4">AP Chemistry Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option5" value="AP English Language and Composition Ultimate Review Packet">
+                                <input type="checkbox" id="option" value="AP English Language and Composition Ultimate Review Packet">
                                 <label for="option5">AP English Language and Composition Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option6" value="AP Environmental Science Ultimate Review Packet">
+                                <input type="checkbox" id="option" value="AP Environmental Science Ultimate Review Packet">
                                 <label for="option6">AP Environmental Science Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option7" value="AP European History Ultimate Review Packet">
+                                <input type="checkbox" id="option" value="AP European History Ultimate Review Packet">
                                 <label for="option7">AP European History Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option8" value="AP Human Geography Ultimate Review Packet">
+                                <input type="checkbox" id="option" value="AP Human Geography Ultimate Review Packet">
                                 <label for="option8">AP Human Geography Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option9" value="AP Macroeconomics Ultimate Review Packet">
+                                <input type="checkbox" id="option" value="AP Macroeconomics Ultimate Review Packet">
                                 <label for="option9">AP Macroeconomics Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option10" value="AP Microeconomics Ultimate Review Packet">
+                                <input type="checkbox" id="option" value="AP Microeconomics Ultimate Review Packet">
                                 <label for="option10">AP Microeconomics Ultimate Review Packet</label>
                                 <br>
-                                <input type="checkbox" id="option11" value="AP Physics 1 Ultimate Review Packet">
+                                <input type="checkbox" id="option" value="AP Physics 1 Ultimate Review Packet">
                                 <label for="option11">AP Physics 1 Ultimate Review Packet</label>
                                 <br>
                                 <br>
-                                <input type="checkbox" id="option12" value="AP Psychology Ultimate Review Packet">
+                                <input type="checkbox" id="option" value="AP Psychology Ultimate Review Packet">
                                 <label for="option12">AP Psychology Ultimate Review Packet</label>
                                 <br>
                                 <br>
-                                <input type="checkbox" id="option13" value="AP Statistics Ultimate Review Packet">
+                                <input type="checkbox" id="option" value="AP Statistics Ultimate Review Packet">
                                 <label for="option13">AP Statistics Ultimate Review Packet</label>
                                 <br>
                                 <br>
-                                <input type="checkbox" id="option14" value="AP US Government and Politics Ultimate Review Packet">
+                                <input type="checkbox" id="option" value="AP US Government and Politics Ultimate Review Packet">
                                 <label for="option14">AP US Government and Politics Ultimate Review Packet</label>
                                 <br>
                                 <br>
-                                <input type="checkbox" id="option15" value="AP US History Ultimate Review Packet">
+                                <input type="checkbox" id="option" value="AP US History Ultimate Review Packet">
                                 <label for="option15">AP US History Ultimate Review Packet</label>
                                 <br>
                                 <br>
-                                <input type="checkbox" id="option16" value="AP World History Ultimate Review Packet">
+                                <input type="checkbox" id="option" value="AP World History Ultimate Review Packet">
                                 <label for="option16">AP World History Ultimate Review Packet</label>
                                 <br>
                             </div>
-                        </div>               
+                        </div>
+                        <div id="question_error"></div>               
                         <div id="AP Biology Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
-                            <label for="APBio1">Unfortunately, the AP Biology Ultimate Review Packet isn't available right now. Are you interested in being notified when it becomes available?</label>
+                            <label for="APBio1">Unfortunately, the AP Biology Ultimate Review Packet isn't available right now. Are you interested in being notified when it becomes available? <span class="required-indicator">*</span></label>
                             <input type="radio" id="APBio1" name="APBio1"><br>
                         </div>
                         <div id="AP Calculus AB Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
-                            <label for="APCalcAB1">How many total licenses do you need for AP Calculus AB?</label>
-                            <input type="text" id="APCalcAB1" name="APCalcAB1"><br>
-                            <label for="APCalcAB2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
-                            <input type="text" id="APCalcAB2" name="APCalcAB2"><br>
-                            <label for="APCalcAB3">What is the school email of the teacher that will be using these resources?</label>
-                            <input type="text" id="APCalcAB3" name="APCalcAB3"><br><br>
+                            <label for="APCalcAB1">How many total licenses do you need for AP Calculus AB? </label>
+                            <input type="text" id="APCalcAB1" name="APCalcAB1" ><br>
+                            <label for="APCalcAB2">What is the name of the teacher who will be using these resources? [Full Name Please] </label>
+                            <input type="text" id="APCalcAB2" name="APCalcAB2" ><br>
+                            <label for="APCalcAB3">What is the school email of the teacher that will be using these resources? </label>
+                            <input type="text" id="APCalcAB3" name="APCalcAB3" ><br><br>
                         </div>
                         <div id="AP Calculus BC Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
-                            <label for="APCalcBC1">How many total licenses do you need for AP Calculus BC?</label>
-                            <input type="text" id="APCalcBC1" name="APCalcBC1"><br>
-                            <label for="APCalcBC2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
-                            <input type="text" id="APCalcBC2" name="APCalcBC2"><br>
-                            <label for="APCalcBC3">What is the school email of the teacher that will be using these resources?</label>
-                            <input type="text" id="APCalcBC3" name="APCalcBC3"><br><br>
+                            <label for="APCalcBC1">How many total licenses do you need for AP Calculus BC? </label>
+                            <input type="text" id="question-1" name="APCalcBC1" ><br>
+                            <label for="APCalcBC2">What is the name of the teacher who will be using these resources? [Full Name Please] </label>
+                            <input type="text" id="question-2" name="APCalcBC2"  ><br>
+                            <label for="APCalcBC3">What is the school email of the teacher that will be using these resources? </label>
+                            <input type="text" id="question-3" name="APCalcBC3"  ><br><br>
                         </div>
                         
                         <div id="AP Chemistry Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
-                            <label for="APChem1">How many total licenses do you need for AP Chemistry?</label>
-                            <input type="text" id="APChem1" name="APChem1"><br>
-                            <label for="APChem2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
-                            <input type="text" id="APChem2" name="APChem2"><br>
+                            <label for="APChem1">How many total licenses do you need for AP Chemistry? </label>
+                            <input type="text" id="question-1" name="APChem1" ><br>
+                            <label for="APChem2">What is the name of the teacher who will be using these resources? [Full Name Please] </label>
+                            <input type="text" id="question-2" name="APChem2" ><br>
                             <label for="APChem3">What is the school email of the teacher that will be using these resources?</label>
-                            <input type="text" id="APChem3" name="APChem3"><br><br>
+                            <input type="text" id="question-3" name="APChem3" ><br><br>
                         </div>
                         
                         <div id="AP English Language and Composition Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
                             <label for="APLangComp1">How many total licenses do you need for AP English Language and Composition?</label>
-                            <input type="text" id="APLangComp1" name="APLangComp1"><br>
+                            <input type="text" id="question-1" name="APLangComp1" ><br>
                             <label for="APLangComp2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
-                            <input type="text" id="APLangComp2" name="APLangComp2"><br>
+                            <input type="text" id="question-2" name="APLangComp2" ><br>
                             <label for="APLangComp3">What is the school email of the teacher that will be using these resources?</label>
-                            <input type="text" id="APLangComp3" name="APLangComp3"><br><br>
+                            <input type="text" id="question-3" name="APLangComp3" ><br><br>
                         </div>
                         
                         <div id="AP Environmental Science Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
-                            <label for="APEnvSci1">How many total licenses do you need for AP Environmental Science?</label>
-                            <input type="text" id="APEnvSci1" name="APEnvSci1"><br>
-                            <label for="APEnvSci2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
-                            <input type="text" id="APEnvSci2" name="APEnvSci2"><br>
-                            <label for="APEnvSci3">What is the school email of the teacher that will be using these resources?</label>
-                            <input type="text" id="APEnvSci3" name="APEnvSci3"><br><br>
+                            <label for="APEnvSci1">How many total licenses do you need for AP Environmental Science? </label>
+                            <input type="text" id="question-1" name="APEnvSci1" ><br>
+                            <label for="APEnvSci2">What is the name of the teacher who will be using these resources? [Full Name Please] </label>
+                            <input type="text" id="question-2" name="APEnvSci2" ><br>
+                            <label for="APEnvSci3">What is the school email of the teacher that will be using these resources? </label>
+                            <input type="text" id="question-3" name="APEnvSci3" ><br><br>
                         </div>
                         
                         <div id="AP European History Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
-                            <label for="APEuroHist1">How many total licenses do you need for AP European History?</label>
-                            <input type="text" id="APEuroHist1" name="APEuroHist1"><br>
-                            <label for="APEuroHist2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
-                            <input type="text" id="APEuroHist2" name="APEuroHist2"><br>
-                            <label for="APEuroHist3">What is the school email of the teacher that will be using these resources?</label>
-                            <input type="text" id="APEuroHist3" name="APEuroHist3"><br><br>
+                            <label for="APEuroHist1">How many total licenses do you need for AP European History? </label>
+                            <input type="text" id="question-1" name="APEuroHist1" ><br>
+                            <label for="APEuroHist2">What is the name of the teacher who will be using these resources? [Full Name Please] </label>
+                            <input type="text" id="question-2" name="APEuroHist2" ><br>
+                            <label for="APEuroHist3">What is the school email of the teacher that will be using these resources? </label>
+                            <input type="text" id="question-3" name="APEuroHist3" ><br><br>
                         </div>
                         
                         <div id="AP Human Geography Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
-                            <label for="APHumGeo1">How many total licenses do you need for AP Human Geography?</label>
-                            <input type="text" id="APHumGeo1" name="APHumGeo1"><br>
-                            <label for="APHumGeo2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
-                            <input type="text" id="APHumGeo2" name="APHumGeo2"><br>
-                            <label for="APHumGeo3">What is the school email of the teacher that will be using these resources?</label>
-                            <input type="text" id="APHumGeo3" name="APHumGeo3"><br><br>
+                            <label for="APHumGeo1">How many total licenses do you need for AP Human Geography? </label>
+                            <input type="text" id="question-1" name="APHumGeo1" ><br>
+                            <label for="APHumGeo2">What is the name of the teacher who will be using these resources? [Full Name Please] </label>
+                            <input type="text" id="question-2" name="APHumGeo2" ><br>
+                            <label for="APHumGeo3">What is the school email of the teacher that will be using these resources? </label>
+                            <input type="text" id="question-3" name="APHumGeo3" ><br><br>
                         </div>
                         <div id="AP Macroeconomics Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
-                            <label for="APMacro1">How many total licenses do you need for AP Macroeconomics?</label>
-                            <input type="text" id="APMacro1" name="APMacro1"><br>
-                            <label for="APMacro2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
-                            <input type="text" id="APMacro2" name="APMacro2"><br>
-                            <label for="APMacro3">What is the school email of the teacher that will be using these resources?</label>
-                            <input type="text" id="APMacro3" name="APMacro3"><br><br>
+                            <label for="APMacro1">How many total licenses do you need for AP Macroeconomics? </label>
+                            <input type="text" id="question-1" name="APMacro1" ><br>
+                            <label for="APMacro2">What is the name of the teacher who will be using these resources? [Full Name Please] </label>
+                            <input type="text" id="question-2" name="APMacro2" ><br>
+                            <label for="APMacro3">What is the school email of the teacher that will be using these resources? </label>
+                            <input type="text" id="question-3" name="APMacro3" ><br><br>
                         </div>
                         
                         <div id="AP Microeconomics Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
-                            <label for="APMicro1">How many total licenses do you need for AP Microeconomics?</label>
-                            <input type="text" id="APMicro1" name="APMicro1"><br>
-                            <label for="APMicro2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
-                            <input type="text" id="APMicro2" name="APMicro2"><br>
-                            <label for="APMicro3">What is the school email of the teacher that will be using these resources?</label>
-                            <input type="text" id="APMicro3" name="APMicro3"><br><br>
+                            <label for="APMicro1">How many total licenses do you need for AP Microeconomics? </label>
+                            <input type="text" id="question-1" name="APMicro1" ><br>
+                            <label for="APMicro2">What is the name of the teacher who will be using these resources? [Full Name Please] </label>
+                            <input type="text" id="question-2" name="APMicro2"  ><br>
+                            <label for="APMicro3">What is the school email of the teacher that will be using these resources? </label>
+                            <input type="text" id="question-3" name="APMicro3" ><br><br>
                         </div>
                         
                         <div id="AP Physics 1 Ultimate Review Packet Question" class="hidden questions">
@@ -254,12 +258,12 @@
                         <div id="AP Psychology Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
-                            <label for="APPsych1">How many total licenses do you need for AP Psychology?</label>
-                            <input type="text" id="APPsych1" name="APPsych1"><br>
-                            <label for="APPsych2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
-                            <input type="text" id="APPsych2" name="APPsych2"><br>
-                            <label for="APPsych3">What is the school email of the teacher that will be using these resources?</label>
-                            <input type="text" id="APPsych3" name="APPsych3"><br><br>
+                            <label for="APPsych1">How many total licenses do you need for AP Psychology? </label>
+                            <input type="text" id="question-1" name="APPsych1" ><br>
+                            <label for="APPsych2">What is the name of the teacher who will be using these resources? [Full Name Please] </label>
+                            <input type="text" id="question-2" name="APPsych2"  ><br>
+                            <label for="APPsych3">What is the school email of the teacher that will be using these resources? </label>
+                            <input type="text" id="question-3" name="APPsych3" ><br><br>
                         </div>
                         
                         <div id="AP Statistics Ultimate Review Packet Question" class="hidden questions">
@@ -272,34 +276,34 @@
                         <div id="AP US Government and Politics Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
-                            <label for="APGovPol1">How many total licenses do you need for AP US Government and Politics?</label>
-                            <input type="text" id="APGovPol1" name="APGovPol1"><br>
-                            <label for="APGovPol2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
-                            <input type="text" id="APGovPol2" name="APGovPol2"><br>
-                            <label for="APGovPol3">What is the school email of the teacher that will be using these resources?</label>
-                            <input type="text" id="APGovPol3" name="APGovPol3"><br><br>
+                            <label for="APGovPol1">How many total licenses do you need for AP US Government and Politics? </label>
+                            <input type="text" id="question-1" name="APGovPol1" ><br>
+                            <label for="APGovPol2">What is the name of the teacher who will be using these resources? [Full Name Please </label>
+                            <input type="text" id="question-2" name="APGovPol2"  ><br>
+                            <label for="APGovPol3">What is the school email of the teacher that will be using these resources? </label>
+                            <input type="text" id="question-3" name="APGovPol3" ><br><br>
                         </div>
                         
                         <div id="AP US History Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
-                            <label for="APUSH1">How many total licenses do you need for AP US History?</label>
-                            <input type="text" id="APUSH1" name="APUSH1"><br>
-                            <label for="APUSH2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
-                            <input type="text" id="APUSH2" name="APUSH2"><br>
-                            <label for="APUSH3">What is the school email of the teacher that will be using these resources?</label>
-                            <input type="text" id="APUSH3" name="APUSH3"><br><br>
+                            <label for="APUSH1">How many total licenses do you need for AP US History? </label>
+                            <input type="text" id="question-1" name="APUSH1"  ><br>
+                            <label for="APUSH2">What is the name of the teacher who will be using these resources? [Full Name Please] <span class="required-indicator">*Required</span></label>
+                            <input type="text" id="question-2" name="APUSH2" ><br>
+                            <label for="APUSH3">What is the school email of the teacher that will be using these resources? <span class="required-indicator">*Required</span></label>
+                            <input type="text" id="question-3" name="APUSH3" ><br><br>
                         </div>
                         
                         <div id="AP World History Ultimate Review Packet Question" class="hidden questions">
                             <hr>
                             <br><br>
-                            <label for="APWorldHist1">How many total licenses do you need for AP World History?</label>
-                            <input type="text" id="APWorldHist1" name="APWorldHist1"><br>
-                            <label for="APWorldHist2">What is the name of the teacher who will be using these resources? [Full Name Please]</label>
-                            <input type="text" id="APWorldHist2" name="APWorldHist2"><br>
-                            <label for="APWorldHist3">What is the school email of the teacher that will be using these resources?</label>
-                            <input type="text" id="APWorldHist3" name="APWorldHist3"><br><br>
+                            <label for="APWorldHist1">How many total licenses do you need for AP World History? </label>
+                            <input type="text" id="question-1" name="APWorldHist1" ><br>
+                            <label for="APWorldHist2">What is the name of the teacher who will be using these resources? [Full Name Please] </label>
+                            <input type="text" id="question-2" name="APWorldHist2" ><br>
+                            <label for="APWorldHist3">What is the school email of the teacher that will be using these resources? </label>
+                            <input type="text" id="question-3" name="APWorldHist3" ><br><br>
                         </div>                       
                         <br>
                         <br>
@@ -311,6 +315,8 @@
             </form>
         </main>
         <script src="{{ url_for('static', filename='Form.js') }}"></script>
+        <script src="/static/Form.js"></script>
+
         <script>
             window.onload = function() {
                 document.getElementById('multi-page-form').addEventListener('submit', validateFormCustom);
