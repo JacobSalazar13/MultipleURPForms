@@ -167,7 +167,7 @@ def form():
         try:
             quantities_list = [int(v.get('quantity')) for v in list(processed_data[0].values()) if len(v.get('quantity')) > 0]
         except Exception as e:
-            log("Didn't submit a number in the orders textbox")
+            log("Didn't submit a number in the orders textbox", client)
             return render_template("error.html", error = e)
         if len(quantities_list) == 0:
             return render_template("Form.html", error = "Please place an order!")
