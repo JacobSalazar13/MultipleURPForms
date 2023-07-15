@@ -163,7 +163,12 @@ def form():
         ]
         form_data["processed_data"] = processed_data
         print(form_data)  # Prints the processed data to the console
-        quantities_list = [int(v.get('quantity')) for v in list(processed_data[0].values()) if len(v.get('quantity')) > 0]
+
+        try:
+            quantities_list = [int(v.get('quantity')) for v in list(processed_data[0].values()) if len(v.get('quantity')) > 0]
+        except Exception as e:
+            log("Didn't submit a number in the orders textbox")
+            return render_template("error.html", error = e)
         if len(quantities_list) == 0:
             return render_template("Form.html", error = "Please place an order!")
         for quantity in quantities_list:
