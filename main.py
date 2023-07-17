@@ -93,7 +93,17 @@ def form():
         # process the raw_data to get the format you want
         processed_data = [
             {
-                
+                "AP Biology": {
+                    "quantity": form_data.get('APbio1', None),
+                    "name": form_data.get('APbio2', None),
+                    "email": form_data.get('APbio3', None)
+                },
+
+                "AP Physics": {
+                    "quantity": form_data.get('APphy1', None),
+                    "name": form_data.get('APphy2', None),
+                    "email": form_data.get('APphy3', None)
+                },
                 "AP Calculus AB": {
                     "quantity": form_data.get('APCalcAB1', None),
                     "name": form_data.get('APCalcAB2', None),
