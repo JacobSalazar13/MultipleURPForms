@@ -59,9 +59,9 @@ form.addEventListener('submit', (e)=>{
   paymessages = [];
   optionmessages = [];
   
-  if(pay.checked === false){
+  if(document.querySelector('input[name="payment"]:checked') === null){
     paymessages.push('*Payment is required');
-  }
+}
 
   let isOptionSelected = false; // Flag variable
 
