@@ -1,4 +1,4 @@
-const button = document.querySelector('button');
+const button_2 = document.querySelector('button');
 const email = document.getElementById('formemail');
 const fullname = document.getElementById('formname');
 const school = document.getElementById('formschool');
@@ -13,7 +13,7 @@ let schoolmessages = [];
 let bulkmessages = [];
 
 
-button.addEventListener('click', (e) => {
+button_2.addEventListener('click', (e) => {
   emailmessages = [];
   namemessages = [];
   schoolmessages = [];
