@@ -169,6 +169,11 @@ def form():
                     "name": form_data.get('APWorldHist2', None),
                     "email": form_data.get('APWorldHist3', None)
                 },
+                "AP Statistics": {
+                    "quantity": form_data.get('APStats1', None),
+                    "name": form_data.get('APStats2', None),
+                    "email": form_data.get('APStats3', None)
+                },
             }
         ]
         form_data["processed_data"] = processed_data
