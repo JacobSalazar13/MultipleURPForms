@@ -13,6 +13,12 @@ service_id_mapping = {
         "WorksheetCodes": 2462237,
         "SampleCodes": None,
     },
+    'AP Biology': {
+        'Service': 'AP Biology Ultimate Review Packet',
+        'ID': 54,
+        'ThinkificCode': 2406622,
+        'WorksheetCodes': None,
+        'SampleCodes': None},    
     "AP Calculus BC": {
         "Service": "AP Calculus BC Ultimate Review Packet",
         "ID": 29,
@@ -97,4 +103,19 @@ service_id_mapping = {
         "WorksheetCodes": 1392253,
         "SampleCodes": 1375958,
     },
+    "AP Physics": {
+        "Service": "AP Physics 1 Ultimate Review Packet",
+        "ID": 38,
+        "ThinkificCode": 2321994,
+        "WorksheetCodes": None,
+        "SampleCodes": None,
+    },
+    "AP Statistics": {
+        "Service": "AP Statistics Ultimate Review Packet",
+        "ID": 39,
+        "ThinkificCode": 2470861,
+        "WorksheetCodes": None,
+        "SampleCodes": None,
+    },
+     
 }
