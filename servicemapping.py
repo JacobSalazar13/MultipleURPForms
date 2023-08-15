@@ -103,7 +103,7 @@ service_id_mapping = {
         "WorksheetCodes": 1392253,
         "SampleCodes": 1375958,
     },
-    "AP Physics": {
+    "AP Physics 1": {
         "Service": "AP Physics 1 Ultimate Review Packet",
         "ID": 38,
         "ThinkificCode": 2321994,
