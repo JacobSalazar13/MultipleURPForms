@@ -178,7 +178,8 @@ def form():
         ]
         form_data["processed_data"] = processed_data
         print(form_data)  # Prints the processed data to the console
-
+        emails_list =  [str(v.get('email')) for v in list(processed_data[0].values()) if len(v.get('email')) > 0]
+        names_list =  [str(v.get('name')) for v in list(processed_data[0].values()) if len(v.get('name')) > 0]
         try:
             quantities_list = [int(v.get('quantity')) for v in list(processed_data[0].values()) if len(v.get('quantity')) > 0]
         except Exception as e:
@@ -196,6 +197,8 @@ def form():
         form_data['quantities_list'] = quantities_list
         form_data["services_list"] = services_list
         form_data['amounts_list'] = amounts_list
+        form_data['names'] = names_list
+        form_data['emails'] = emails_list
         print(form_data)
         thinkificCodes = []
         workSheetCodes = []
