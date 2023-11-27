@@ -3,5 +3,5 @@ requests
 google-cloud-logging==3.*
 google-cloud-storage
 google-auth
-Werkzeug
+Werkzeug==2.0.2
 google-cloud-firestore==2.*
