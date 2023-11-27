@@ -142,6 +142,10 @@
                                 <input type="checkbox" id="option" value="AP World History Ultimate Review Packet">
                                 <label for="option16">AP World History Ultimate Review Packet</label>
                                 <br>
+                                <br>
+                                <input type="checkbox" id="option" value="Bulk Order Bonus Activities for APES Teachers">
+                                <label for="option17">Bulk Order Bonus Activities for APES Teachers</label>
+                                <br>
                             </div>
                         </div>
                         <div id="question_error"></div>               
@@ -316,7 +320,17 @@
                             <input type="text" id="question-2" name="APWorldHist2" ><br>
                             <label for="APWorldHist3">What is the school email of the teacher that will be using these resources? </label>
                             <input type="text" id="question-3" name="APWorldHist3" ><br><br>
-                        </div>                       
+                        </div>
+                        <div id="Bulk Order Bonus Activities for APES Teachers" class="hidden questions">
+                            <hr>
+                            <br><br>
+                            <label for="APBonusApes1">How many total licenses do you need for Bonus APES Activities? </label>
+                            <input type="text" id="question-1" name="APBonusApes1" ><br>
+                            <label for="APBonusApes2">What is the name of the teacher who will be using these resources? [Full Name Please] </label>
+                            <input type="text" id="question-2" name="APBonusApes2" ><br>
+                            <label for="APBonusApes3">What is the school email of the teacher that will be using these resources? </label>
+                            <input type="text" id="question-3" name="APBonusApes3" ><br><br>
+                        </div>                            
                         <br>
                         <br>
                         <div class="submit-button-container">
@@ -431,5 +445,54 @@
                 });
             });
         </script>
+        <!--
+        <script>
+            document.addEventListener('submit', function(e) {
+                e.preventDefault();
+              
+                // Validate email fields
+                var emailFields = ['APbio3', 'APCalcAB3', 'APCalcBC3', 'APChem3', 'APLangComp3', 'APEnvSci3', 'APEuroHist3', 'APHumGeo3', 'APMacro3', 'APMicro3', 'APphy3', 'APPsych3', 'APStats3'];
+                var Subjects = [
+                'AP Biology',
+                'AP Calculus AB',
+                'AP Calculus BC',
+                'AP Chemistry',
+                'AP Language and Composition',
+                'AP Environmental Science',
+                'AP European History',
+                'AP Human Geography',
+                'AP Macroeconomics',
+                'AP Microeconomics',
+                'AP Physics',
+                'AP Psychology',
+                'AP Statistics'
+                ];
+                for (var i = 0; i < emailFields.length; i++) {
+                  var email = document.getElementById(emailFields[i]).value;
+                  var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                  if (!emailPattern.test(email)) {
+                    alert('Please enter a valid email for ' + Subjects[i]);
+                    return false;
+                  }
+                }
+              
+                // Validate numeric fields
+                var numericFields = ['APbio1', 'APCalcAB1', 'APCalcBC1', 'APChem1', 'APLangComp1', 'APEnvSci1', 'APEuroHist1', 'APHumGeo1', 'APMacro1', 'APMicro1', 'APphy1', 'APPsych1', 'APStats1'];
+                for (var i = 0; i < numericFields.length; i++) {
+                  var number = document.getElementById(numericFields[i]).value;
+                  if (isNaN(number) || number < 0) {
+                    alert('Please enter a valid number for ' + Subjects[i]);
+                    return false;
+                  }
+                }
+              
+                // If all validations pass, you can proceed with form submission
+                alert('Form submitted successfully!');
+                // You can uncomment the following line to proceed with the actual form submission
+                // e.target.submit();
+              });
+              
+        </script> -->
+        
     </body>
 </html>

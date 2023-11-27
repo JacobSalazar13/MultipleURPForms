@@ -99,7 +99,7 @@ def form():
                     "email": form_data.get('APbio3', None)
                 },
 
-                "AP Physics": {
+                "AP Physics 1": {
                     "quantity": form_data.get('APphy1', None),
                     "name": form_data.get('APphy2', None),
                     "email": form_data.get('APphy3', None)
@@ -173,6 +173,11 @@ def form():
                     "quantity": form_data.get('APStats1', None),
                     "name": form_data.get('APStats2', None),
                     "email": form_data.get('APStats3', None)
+                },
+                "Bulk Order Bonus Activities for APES Teachers": {
+                    "quantity": form_data.get('APBonusApes1', None),
+                    "name": form_data.get('APBonusApes2', None),
+                    "email": form_data.get('APBonusApes3', None)
                 },
             }
         ]

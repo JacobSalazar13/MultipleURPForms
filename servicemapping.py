@@ -117,5 +117,12 @@ service_id_mapping = {
         "WorksheetCodes": None,
         "SampleCodes": None,
     },
+    "Bulk Order Bonus Activities for APES Teachers": {
+        "Service": "Bulk Order Bonus Activities for APES Teachers",
+        "ID": 56,
+        "ThinkificCode": 2634428,
+        "WorksheetCodes": None,
+        "SampleCodes": None,
+    },
      
 }
